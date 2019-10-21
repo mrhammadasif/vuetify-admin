@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "target": "es2015",
+    "module": "es2015",
+    "baseUrl": ".",
+    "paths": {
+      "*": [
+        "*",
+        "src/*",
+        "src/assets/*"
+      ]
+    }
+  },
+  
+  "include": ["./src/**/*", "../EdGraph.Applications.DataSync.Data.Common/DTOs/Validators/UpdateProviderRequestValidator.cs"]
+}

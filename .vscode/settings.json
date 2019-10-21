@@ -1,0 +1,25 @@
+{
+  "vetur.format.defaultFormatter.js": "vscode-typescript",
+  "vetur.format.defaultFormatter.html": "prettier",
+  "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
+  "editor.formatOnSave": false,
+  "eslint.autoFixOnSave": true,
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "vue",
+      "autoFix": true
+    }
+  ],
+  "files.exclude": {
+    "*.csproj": true,
+    "*.cs": true,
+    "PackageRoot": true,
+    "wwwroot": true,
+    "node_modules": true,
+    "Properties": true,
+    "bin": true,
+    "obj": true
+  }
+}
