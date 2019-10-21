@@ -3,6 +3,7 @@
   "version": "2.0.0",
   "private": true,
   "scripts": {
+    "start": "serve dist",
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
@@ -27,6 +28,7 @@
     "moment": "^2.24.0",
     "perfect-scrollbar": "^1.4.0",
     "prismjs": "^1.17.1",
+    "serve": "^11.2.0",
     "vee-validate": "^2.2.13",
     "vue": "^2.6.10",
     "vue-apexcharts": "^1.4.0",
