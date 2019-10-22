@@ -1,5 +1,5 @@
 import {routes} from "@/router"
-import {startCase, get} from "lodash"
+import {get} from "lodash"
 
 const sideItems = []
 routes.map((route) => route.children).reduce((route, currentElem) => route.concat(currentElem), [])
