@@ -18,38 +18,7 @@ Vue.filter("formatDate", function (value) {
 })
 
 Vue.filter("elapsedTime", function (startTime) {
-  const x = new Date(startTime)
-  const now = new Date()
-  let timeDiff = now - x
-  timeDiff /= 1000
-
-  const seconds = Math.round(timeDiff)
-  timeDiff = Math.floor(timeDiff / 60)
-
-  const minutes = Math.round(timeDiff % 60)
-  timeDiff = Math.floor(timeDiff / 60)
-
-  const hours = Math.round(timeDiff % 24)
-  timeDiff = Math.floor(timeDiff / 24)
-
-  const days = Math.round(timeDiff % 365)
-  timeDiff = Math.floor(timeDiff / 365)
-
-  const years = timeDiff
-
-  if (years > 0) {
-    return years + (years > 1 ? " Years " : " Year ") + "ago"
-  } else if (days > 0) {
-    return days + (days > 1 ? " Days " : " Day ") + "ago"
-  } else if (hours > 0) {
-    return hours + (hours > 1 ? " Hrs " : " Hour ") + "ago"
-  } else if (minutes > 0) {
-    return minutes + (minutes > 1 ? " Mins " : " Min ") + "ago"
-  } else if (seconds > 1) {
-    return `${seconds} Secs ago`
-  }
-
-  return "Just Now"
+  return moment(startTime).fromNow()
 })
 
 Vue.filter("truncate", function (value, limit) {
