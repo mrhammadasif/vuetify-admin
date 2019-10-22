@@ -12,7 +12,6 @@
   <div class="relative">
     <div class="vx-navbar-wrapper">
       <vs-navbar
-        :color="navbarColor"
         :class="classObj"
         class="vx-navbar navbar-custom">
 
@@ -101,10 +100,6 @@ export default {
     Popper
   },
   props: {
-    navbarColor: {
-      type: String,
-      default: "#fff"
-    },
     showBookmarkContainer: {
       type: Boolean,
       default: true
