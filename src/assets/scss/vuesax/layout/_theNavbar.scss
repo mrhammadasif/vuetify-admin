@@ -20,16 +20,9 @@
 
   .vx-navbar {
     background: $dark-card-bg !important;
+    color: $theme-dark-text-color;
     .vs-con-items {
       width: 100%;
-
-      .search-full-container {
-        background: $white;
-      }
-
-      .vx-auto-suggest {
-        color: $content-color;
-      }
     }
   }
 }
