@@ -5,13 +5,17 @@
       <div
         slot="header"
         class="flex items-center justify-between">
-        <h3>Services</h3>
-        <div class="flex justify-end">
+        <h3>{{ label }}s</h3>
+        <div class="flex">
+          <vs-input
+            v-model="searchText"
+            placeholder="Enter text to search..."
+          />
           <vs-button
             icon="refresh"
             color="warning"
             type="filled"
-            class="mr-2"
+            class="ml-2"
             @click.stop="reloadData()"
           >Refresh</vs-button>
           <!-- <vs-button
@@ -24,9 +28,11 @@
         </div>
       </div>
       <div>
-        <vs-table :data="connections">
+        <vs-table
+          :data="filteredRows"
+          pagination>
           <template slot="thead">
-            <vs-th>
+            <vs-th sort-key="name">
               Name
             </vs-th>
             <vs-th>
@@ -81,11 +87,22 @@
                 </vx-tooltip>
               </vs-td>
               <vs-td>
-                <vs-button
-                  type="filled"
-                  icon="delete"
-                  color="danger"
-                  @click="deleteService(tr._id)"/>
+                <div
+                  class="flex">
+                  <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
+                    <vs-button
+                      :color="tr.isFav ? 'warning' : 'light'"
+                      class="mr-2"
+                      icon="star"
+                      type="filled"
+                      @click="toggleFavorite(tr)"/>
+                  </vx-tooltip>
+                  <vs-button
+                    type="filled"
+                    icon="delete"
+                    color="danger"
+                    @click="deleteService(tr._id)"/>
+                </div>
               </vs-td>
               <!-- <vs-td :data="tr.statusDisplayName">
                 <app-status-badge :status="tr.statusDisplayName" />
@@ -107,30 +124,58 @@ import {startCase} from "lodash"
 
 export default Vue.extend({
   data: () => {
-    return {connections: []}
+    return {
+      rows: [],
+      searchText: "",
+      label: "Service"
+    }
   },
-  computed: {basePath: () => apiConfig.EXTERNAL_ASSETS_BASEURL},
+  computed: {
+    basePath: () => apiConfig.EXTERNAL_ASSETS_BASEURL,
+    filteredRows () {
+      return this.rows.filter((row) => {
+        if (this.searchText) {
+          return JSON.stringify(row).match(RegExp(this.searchText, "i"))
+        }
+        else {
+          return true
+        }
+      })
+    }
+  },
   mounted () {
     this.reloadData()
   },
   methods: {
     startCase,
-    deleteService (serviceId) {
+    deleteService (rowId) {
       this.$vs.dialog({
         type: "confirm",
         color: "danger",
         title: "Are you sure",
-        text: `You want to delete the service with Id: ${serviceId}`,
-        accept: () => this.acceptConfirm(serviceId)
+        text: `You want to delete the ${this.label} with Id: ${rowId}`,
+        accept: () => this.acceptConfirm(rowId)
       })
     },
-    async acceptConfirm (serviceId) {
+    async toggleFavorite (row) {
+      const toMake = row.isFav ? false : true
+      this.$vs.loading({text: "Making Service Favorite"})
+      await this.$sleep(500)
+      this.$vs.loading.close()
+      this.$set(row, "isFav", toMake)
+      this.$vs.notify({
+        color: "success",
+        title: "Done",
+        text: `The selected ${this.label} was marked as ${toMake ? "Favorite" : "Not Favorite"} successfully`
+      })
+    },
+    async acceptConfirm (rowId) {
       try {
-        await axios.delete("/services/" + serviceId)
+        await axios.delete("/services/" + rowId)
         this.$vs.notify({
           color: "danger",
           title: "Deleted",
-          text: "The selected service was successfully deleted"
+          text: `The selected ${this.label} was successfully deleted`
         })
         this.reloadData()
       }
@@ -144,9 +189,9 @@ export default Vue.extend({
       }
     },
     async reloadData () {
-      this.$vs.loading({text: "Loading Services ..."})
+      this.$vs.loading({text: `Loading ${this.label}s ...`})
       const {data} = await axios.get("/services")
-      this.connections = data
+      this.rows = data
       this.$vs.loading.close()
     }
   }
