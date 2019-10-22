@@ -1,5 +1,4 @@
 
-
 <template>
   <div id="knowledge-base-category-page">
     <p class="mb-4">{{ categorySubtitle }}</p>

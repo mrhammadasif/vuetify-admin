@@ -4,6 +4,9 @@
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.formatOnSave": false,
   "eslint.autoFixOnSave": true,
+  "path-intellisense.mappings": {
+    "@": "src/"
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",

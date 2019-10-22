@@ -1,5 +1,4 @@
 
-
 <template>
   <div
     :class="[{'vs-sidebar-item-active':activeLink}, {'disabled-item pointer-events-none': isDisabled}]"

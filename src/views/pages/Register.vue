@@ -1,5 +1,3 @@
-
-
 <template>
   <div class="h-screen flex w-full bg-img vx-row no-gutter items-center justify-center">
     <div class="vx-col sm:w-1/2 md:w-1/2 lg:w-3/4 xl:w-3/5 sm:m-0 m-4">

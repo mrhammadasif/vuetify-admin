@@ -1,5 +1,4 @@
 
-
 <template>
   <div
     :class="[{'vs-sidebar-group-open' : openItems}, {'vs-sidebar-group-active': open}, {'disabled-item pointer-events-none': group.isDisabled}]"
