@@ -110,8 +110,8 @@ export default Vue.extend({
   },
   methods: {
     async loadConnections () {
-      this.$vs.loading({text: "Loading Connections ..."})
-      const {data} = await axios.get("/Connections")
+      this.$vs.loading({text: "Loading Services ..."})
+      const {data} = await axios.get("/services")
       this.connections = data
       this.$vs.loading.close()
     }

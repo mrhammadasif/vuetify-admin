@@ -1,18 +1,17 @@
+import {routes} from "@/router"
+import {startCase, get} from "lodash"
 
-export default [
+const sideItems = []
+routes.map((route) => route.children).reduce((route, currentElem) => route.concat(currentElem), [])
+  .filter((r) => get(r, "sideNav"))
+  .forEach((route) => {
+    console.log(startCase(route.url))
+    sideItems.push({
+      name: route.label,
+      url: route.path,
+      slug: route.name,
+      icon: get(route, "icon") || "ArrowRightIcon"
+    })
+  })
 
-  {
-    index: 1,
-    name: "Menu Item 1",
-    url: "/page",
-    slug: "/page",
-    icon: "ArrowRightIcon"
-  },
-  {
-    index: 1,
-    name: "Menu Item 2",
-    url: "/page2",
-    slug: "/page2",
-    icon: "ArrowRightIcon"
-  }
-]
+export default sideItems
