@@ -1,13 +1,3 @@
-<!-- =========================================================================================
-  File Name: TheNavbar.vue
-  Description: Navbar component
-  Component Name: TheNavbar
-  ----------------------------------------------------------------------------------------
-  Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-  Author: Pixinvent
-  Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
-
 <template>
   <div class="relative">
     <div class="vx-navbar-wrapper">
@@ -34,13 +24,17 @@
             vs-custom-content
             vs-trigger-click
             class="cursor-pointer">
-            <div class="con-img ml-3">
+            <div class="con-img ml-3 flex items-center">
               <!-- v-if="activeUserImg.startsWith('http')"
                 :src="activeUserImg" -->
 
               <vs-icon
                 size="32px"
                 icon="account_circle" />
+              <vs-icon
+                size="24px"
+                icon="arrow_drop_down"
+              />
             </div>
             <vs-dropdown-menu class="vx-navbar-dropdown">
               <ul style="min-width: 12rem">
@@ -164,21 +158,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-#animate-apps {
-  max-width: 80vw;
-}
-#animate-apps section {
-  display: flex;
-  flex-wrap: wrap;
-}
-small[email] {
-  font-size: 10px;
-  font-weight: lighter;
-}
-.my-class {
-  width: 200px;
-}
-</style>
-

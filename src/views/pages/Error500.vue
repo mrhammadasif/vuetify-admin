@@ -1,11 +1,4 @@
-<!-- =========================================================================================
-    File Name: Error500.vue
-    Description: 500 Page
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
+
 
 <template>
   <div class="h-screen flex w-full bg-img">

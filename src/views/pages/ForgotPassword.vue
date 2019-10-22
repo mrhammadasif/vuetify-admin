@@ -1,11 +1,4 @@
-<!-- =========================================================================================
-    File Name: ForgotPassword.vue
-    Description: FOrgot Password Page
-    ----------------------------------------------------------------------------------------
-    Item Name: Vuesax Admin - VueJS Dashboard Admin Template
-      Author: Pixinvent
-    Author URL: http://www.themeforest.net/user/pixinvent
-========================================================================================== -->
+
 
 <template>
   <div class="h-screen flex w-full bg-img">

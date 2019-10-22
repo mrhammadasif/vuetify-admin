@@ -11,7 +11,6 @@ const state = {
   bodyOverlay: false,
   sidebarItemsMin: false,
   theme: themeConfig.theme || "light",
-  themePrimaryColor: colors.primary,
   userRole: null,
   // Can be used to get current window with
   // Note: Above breakpoint state is for internal use of sidebar component
