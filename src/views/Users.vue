@@ -82,11 +82,26 @@
                 </vx-tooltip>
               </vs-td>
               <vs-td>
-                <vs-button
-                  type="filled"
-                  icon="delete"
-                  color="danger"
-                  @click="deleteService(tr._id)"/>
+                <div class="flex">
+                  <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
+                    <vs-button
+                      :color="tr.isFav ? 'warning' : 'light'"
+                      class="mr-2"
+                      icon="star"
+                      type="filled"
+                      @click="toggleFavorite(tr)"/>
+                  </vx-tooltip>
+                  <!-- <vs-button
+                    class="mr-2"
+                    type="filled"
+                    icon="info"
+                    @click="$vs.dialog({type: 'alert', title: `User Detail`,text: `${JSON.stringify(tr, null, '\t')}`})" /> -->
+                  <vs-button
+                    type="filled"
+                    icon="delete"
+                    color="danger"
+                    @click="deleteRow(tr._id)"/>
+                </div>
               </vs-td>
               <!-- <vs-td :data="tr.statusDisplayName">
                 <app-status-badge :status="tr.statusDisplayName" />
@@ -104,7 +119,7 @@
 import Vue from "vue"
 import axios from "axios"
 import apiConfig from "@/../api_config.json"
-import {startCase} from "lodash"
+import {startCase, get} from "lodash"
 
 export default Vue.extend({
   data: () => {
@@ -132,7 +147,23 @@ export default Vue.extend({
   },
   methods: {
     startCase,
-    deleteService (rowID) {
+    async toggleFavorite (row) {
+      const toMake = row.isFav ? false : true
+      this.$vs.loading({text: `Making ${this.label} Favorite`})
+      try {
+        await axios.patch(`/users/${row._id}/${toMake ? "true" : "false"}`)
+        this.$vs.loading.close()
+        this.$set(row, "isFav", toMake)
+        this.$vs.notify({
+          color: "success",
+          title: "Done",
+          text: `The selected ${this.label} was marked as ${toMake ? "Favorite" : "Not Favorite"} successfully`
+        })
+      } catch (e) {
+        alert(get(e, "response.data") || e.message)
+      }
+    },
+    deleteRow (rowID) {
       this.$vs.dialog({
         type: "confirm",
         color: "danger",

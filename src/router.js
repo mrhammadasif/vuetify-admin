@@ -101,8 +101,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(sessionStorage.getItem("token"))
-  console.log("going to")
   if (to.matched.find((route) => route.meta.isPublic)) {
     next()
   }
