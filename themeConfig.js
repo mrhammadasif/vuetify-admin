@@ -1,13 +1,12 @@
 
 // MAIN COLORS - VUESAX THEME COLORS
 const colors = {
-  primary: "#333333",
-  secondary: "#0099cc",
+  primary: "#006fcc",
+  secondary: "#f4f7fc",
   success: "#28C76F",
   danger: "#EA5455",
   warning: "#FF9F43",
-  dark: "#333333",
-  hammad: "#f2f2f2"
+  dark: "#333333"
 }
 
 import Vue from "vue"
