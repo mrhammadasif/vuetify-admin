@@ -24,7 +24,7 @@ export const routes = [
 
       },
       {
-        path: "/page",
+        path: "/services",
         name: "app-services",
         sideNav: true,
         label: "Services",

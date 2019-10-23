@@ -13,7 +13,7 @@
           />
           <vs-button
             icon="refresh"
-            color="warning"
+            color="primary"
             type="filled"
             class="ml-2"
             @click.stop="reloadData()"
@@ -85,7 +85,7 @@
                 <div class="flex">
                   <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
                     <vs-button
-                      :color="tr.isFav ? 'warning' : 'light'"
+                      :color="tr.isFav ? 'primary' : 'light'"
                       class="mr-2"
                       icon="star"
                       type="filled"

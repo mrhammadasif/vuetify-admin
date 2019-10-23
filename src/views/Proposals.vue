@@ -13,7 +13,7 @@
           />
           <vs-button
             icon="refresh"
-            color="warning"
+            color="primary"
             type="filled"
             class="ml-2"
             @click.stop="reloadData()"
