@@ -87,7 +87,7 @@
                 </vx-tooltip>
               </vs-td>
               <vs-td>
-                <div class="flex">
+                <div class="flex justify-end">
                   <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
                     <vs-button
                       :color="tr.isFav ? 'primary' : 'light'"
@@ -96,16 +96,20 @@
                       type="filled"
                       @click="toggleFavorite(tr)"/>
                   </vx-tooltip>
-                  <vs-button
-                    class="mr-2"
-                    type="filled"
-                    icon="info"
-                    @click="$vs.dialog({type: 'alert', title: `Service Detail`,text: `${JSON.stringify(tr, null, '\t')}`})" />
-                  <vs-button
-                    type="filled"
-                    icon="delete"
-                    color="danger"
-                    @click="deleteRow(tr._id)"/>
+                  <vx-tooltip text="View / Edit">
+                    <vs-button
+                      class="mr-2"
+                      type="filled"
+                      icon="edit"
+                      @click="$vs.dialog({type: 'alert', title: `Service Detail`,text: `${JSON.stringify(tr, null, '\t')}`})" />
+                  </vx-tooltip>
+                  <vx-tooltip text="Delete">
+                    <vs-button
+                      type="filled"
+                      icon="delete"
+                      color="danger"
+                      @click="deleteRow(tr._id)"/>
+                  </vx-tooltip>
                 </div>
               </vs-td>
               <!-- <vs-td :data="tr.statusDisplayName">
