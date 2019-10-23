@@ -20,8 +20,7 @@ export const routes = [
       {
         path: "/",
         name: "app-home",
-        redirect: "/page"
-        // component: () => import("./views/Home.vue"),
+        component: () => import("./views/Home.vue")
 
       },
       {
