@@ -132,7 +132,8 @@ export default Vue.extend({
     filteredRows () {
       return this.rows.filter((row) => {
         if (this.searchText) {
-          return JSON.stringify(row).match(RegExp(this.searchText, "i"))
+          return Object.values(row).join("|")
+            .match(RegExp(this.searchText, "i"))
         }
         else {
           return true
