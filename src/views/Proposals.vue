@@ -92,7 +92,7 @@
                 </vx-tooltip>
               </vs-td>
               <vs-td>
-                <div class="flex">
+                <div class="flex justify-end">
                   <!-- <vs-button
                     type="filled"
                     icon="info"

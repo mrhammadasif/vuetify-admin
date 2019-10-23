@@ -82,7 +82,7 @@
                 </vx-tooltip>
               </vs-td>
               <vs-td>
-                <div class="flex">
+                <div class="flex justify-end">
                   <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
                     <vs-button
                       :color="tr.isFav ? 'primary' : 'light'"
