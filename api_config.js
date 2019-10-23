@@ -1,5 +1,5 @@
 const api = {
-  APIBASE: "https://be2bo.nitroxis.com/admin",
+  APIBASE: "https://isv-api.herokuapp.com/admin",
   NAME: "ISV Admin"
 }
 const hostname = window.location.hostname
