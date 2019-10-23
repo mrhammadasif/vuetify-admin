@@ -127,7 +127,6 @@
 <script lang="ts">
 import Vue from "vue"
 import axios from "axios"
-import apiConfig from "@/../api_config.json"
 import {startCase, get} from "lodash"
 
 export default Vue.extend({
@@ -139,7 +138,6 @@ export default Vue.extend({
     }
   },
   computed: {
-    basePath: () => apiConfig.EXTERNAL_ASSETS_BASEURL,
     filteredRows () {
       return this.rows.filter((row) => {
         if (this.searchText) {

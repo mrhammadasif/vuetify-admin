@@ -1,4 +1,4 @@
-import config from "../../api_config.json"
+import config from "../../api_config"
 import axios from "axios"
 import store from "@/store/store"
 

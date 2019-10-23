@@ -13,6 +13,7 @@
               <div class="p-8">
                 <div class="vx-card__title mb-8">
                   <!-- <h4 class="mb-4">Login</h4> -->
+                  <MainLogo />
                   <p>Welcome back, please login to your account.</p>
                 </div>
                 <vs-input
@@ -61,7 +62,10 @@
 
 <script>
 import axios from "axios"
+import MainLogo from "@/assets/main-logo.svg"
+
 export default {
+  components: {MainLogo},
   data () {
     return {
       email: "admin@nitroxis.com",
@@ -86,14 +90,14 @@ export default {
         email: this.email,
         password: this.password
       })
-        .then((resp) => {
+        .then(async (resp) => {
           console.log(resp.data)
           this.$vs.notify({
             title: "Login Successful",
             text: resp.data.token,
             color: "success"
           })
-          this.$store.dispatch("loginUser", {token: resp.data.token})
+          await this.$store.dispatch("loginUser", {token: resp.data.token})
           this.$vs.loading.close()
           this.$router.replace("/")
         })

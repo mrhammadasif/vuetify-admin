@@ -21,29 +21,26 @@ export const routes = [
         path: "/",
         name: "app-home",
         component: () => import("./views/Home.vue")
-
       },
       {
         path: "/services",
         name: "app-services",
-        sideNav: true,
-        label: "Services",
         component: () => import("./views/Services.vue")
 
       },
       {
         path: "/users",
         name: "app-users",
-        sideNav: true,
-        label: "Users",
         component: () => import("./views/Users.vue")
-
+      },
+      {
+        path: "/users/add",
+        name: "add-user",
+        component: () => import("./views/UsersForm.vue")
       },
       {
         path: "/proposals",
         name: "app-proposals",
-        sideNav: true,
-        label: "Proposals",
         component: () => import("./views/Proposals.vue")
 
       }

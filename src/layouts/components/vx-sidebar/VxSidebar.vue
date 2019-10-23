@@ -17,17 +17,13 @@
         @mouseleave="sidebarMouseLeave">
         <div
           slot="header"
-          class="header-sidebar flex items-end justify-between">
+          class="header-sidebar flex items-end justify-between bg-white mb-5">
           <div class="logo flex items-center align-end">
-            <img
-              v-if="logo"
-              :src="logo"
-              alt="logo"
-              class="w-10 mr-4">
-            <span
+            <MainLogo />
+            <!-- <span
               v-show="isMouseEnter || !reduce"
               v-if="title"
-              class="logo-text text-white uppercase">{{ title }}</span>
+              class="logo-text text-white uppercase">{{ title }}</span> -->
           </div>
           <div>
             <template v-if="showCloseButton">
@@ -120,10 +116,12 @@
 import VuePerfectScrollbar from "vue-perfect-scrollbar"
 import VxSidebarGroup from "./VxSidebarGroup.vue"
 import VxSidebarItem  from "./VxSidebarItem.vue"
+import MainLogo from "@/assets/main-logo.svg"
 
 export default {
   name: "VxSidebar",
   components: {
+    MainLogo,
     VxSidebarGroup,
     VxSidebarItem,
     VuePerfectScrollbar
@@ -301,7 +299,7 @@ export default {
 
 <style lang="scss">
 @import "@/assets/scss/vuesax/components/vxSidebar.scss";
-// .main-menu-sidebar .header-sidebar .feather-icon svg {
-//   color: $dark;
-// }
+.main-menu-sidebar .header-sidebar .feather-icon svg {
+  color: $primary;
+}
 </style>
