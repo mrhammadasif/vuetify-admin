@@ -11,7 +11,7 @@ export default function () {
     return config
   })
 
-  axios.defaults.baseURL = config.APIBASE
+  axios.defaults.baseURL = config.ADMINBASE
   // axios.defaults.headers.common["Content-type"] = "application/json; charset=utf-8"
 
 }

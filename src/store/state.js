@@ -1,7 +1,6 @@
 import themeConfig from "@/../themeConfig.js"
 
 const state = {
-  token: "",
   isSidebarActive: true,
   breakpoint: null,
   sidebarWidth: "default",

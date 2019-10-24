@@ -7,7 +7,7 @@
       <vx-card>
         <div
           slot="no-body"
-          class="full-page-bg-color">
+          class="bg-white">
           <div class="vx-row no-gutter justify-center items-center">
             <div class="vx-col sm:w-full d-theme-dark-bg">
               <div class="p-8">

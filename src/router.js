@@ -29,6 +29,12 @@ export const routes = [
 
       },
       {
+        path: "/services/add",
+        name: "app-add-services",
+        component: () => import("./views/ServicesForm.vue")
+
+      },
+      {
         path: "/users",
         name: "app-users",
         component: () => import("./views/Users.vue")
