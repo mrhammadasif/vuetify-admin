@@ -6,6 +6,7 @@ export default function () {
 
   console.info("adding config of axios ....")
   axios.interceptors.request.use((config) => {
+    console.log(store.getters.token)
     config.headers.Authorization = store.getters.token
     config.headers["Content-type"] = "application/json; charset=utf-8"
     return config

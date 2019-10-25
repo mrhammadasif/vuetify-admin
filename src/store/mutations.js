@@ -1,4 +1,4 @@
-
+import {get} from "lodash"
 const mutations = {
 
   // ////////////////////////////////////////////
@@ -6,10 +6,10 @@ const mutations = {
   // ////////////////////////////////////////////
 
   LOGIN (state, token) {
-    state.token = token
+    sessionStorage.setItem("userToken",  token)
   },
-  LOGOUT (state) {
-    state.token = null
+  LOGOUT () {
+    sessionStorage.removeItem("userToken")
   },
   UPDATE_SIDEBAR_WIDTH (state, width) {
     state.sidebarWidth = width
@@ -29,7 +29,8 @@ const mutations = {
   UPDATE_WINDOW_BREAKPOINT (state, val) {
     state.breakpoint = val
   },
-  TOGGLE_DARK_MODE (state, {darkMode}) {
+  TOGGLE_DARK_MODE (state, payload) {
+    const darkMode = get(payload, "darkmode")
     localStorage.setItem("theme", darkMode ? "dark" : "light")
     if (!!darkMode) {
       state.theme = "dark"
