@@ -46,6 +46,11 @@ export const routes = [
         component: () => import("./views/Users.vue")
       },
       {
+        path: "/transactions",
+        name: "app-transactions",
+        component: () => import("./views/Transactions.vue")
+      },
+      {
         path: "/users/add",
         name: "add-user",
         component: () => import("./views/UsersForm.vue")
