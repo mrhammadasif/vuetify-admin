@@ -31,8 +31,14 @@ export const routes = [
       {
         path: "/services/add",
         name: "app-add-services",
-        component: () => import("./views/ServicesForm.vue")
+        component: () => import("./views/ServicesForm.vue?_t=1")
 
+      },
+      {
+        path: "/services/detail/:serviceId",
+        name: "app-service-detail",
+        component: () => import("./views/ServicesForm.vue?_t=2"),
+        meta: {isDetailView: true}
       },
       {
         path: "/users",
@@ -103,20 +109,19 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
+  // you are not allowed to visit admin
+  if (to.path.includes("login") && store.state.token) {
+    next("/")
+    return
+  }
   if (to.matched.find((route) => route.meta.isPublic)) {
     next()
   }
+  else if (!store.state.token) {
+    next("/login")
+  }
   else {
-    // you are not allowed to visit admin
-    store.dispatch("loadTokenFromSession").then((isLoggedIn) => {
-      if (isLoggedIn) {
-        // this.$router.replace("/")
-        next()
-      }
-      else {
-        next("/login")
-      }
-    })
+    next()
   }
 })
 

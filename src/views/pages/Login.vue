@@ -1,4 +1,3 @@
-
 <template>
   <div
     id="page-login"
@@ -63,6 +62,7 @@
 <script>
 import axios from "axios"
 import MainLogo from "@/assets/main-logo.svg"
+import {get} from "lodash"
 
 export default {
   components: {MainLogo},
@@ -91,13 +91,13 @@ export default {
         password: this.password
       })
         .then(async (resp) => {
-          console.log(resp.data)
+          // console.log(resp.data)
           this.$vs.notify({
             title: "Login Successful",
             text: resp.data.token,
             color: "success"
           })
-          await this.$store.dispatch("loginUser", {token: resp.data.token})
+          await this.$store.dispatch("loginUser",  resp.data.token)
           this.$vs.loading.close()
           this.$router.replace("/")
         })
@@ -106,7 +106,7 @@ export default {
           this.$vs.loading.close()
           this.$vs.notify({
             title: "Login Error",
-            text: err.response.data.msg || "Network Error. Try again",
+            text: get(err, "response.data.msg") || "Network Error. Try again",
             color: "danger"
           })
         })
@@ -120,33 +120,7 @@ export default {
         icon: "icon-alert-circle",
         color: "warning"
       })
-    },
-    registerUser () {
-      if (this.$store.state.auth.isUserLoggedIn()) {
-        this.notifyAlreadyLogedIn()
-        return false
-      }
-      this.$router.push("/pages/register")
     }
   }
 }
 </script>
-
-<style lang="scss">
-#page-login {
-    .social-login {
-        .bg-facebook {
-          background-color: #1551b1;
-        }
-        .bg-twitter {
-          background-color: #00aaff;
-        }
-        .bg-google {
-          background-color: #4285F4;
-        }
-        .bg-github {
-          background-color: #333;
-        }
-    }
-}
-</style>

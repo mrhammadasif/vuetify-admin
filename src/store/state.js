@@ -12,11 +12,10 @@ const state = {
   // Can be used to get current window with
   // Note: Above breakpoint state is for internal use of sidebar component
   windowWidth: null,
-  tenants: [],
-  currentTenant: "",
-  username: "",
-  email: "",
-  photoUrl: ""
+  // username: "",
+  // email: "",
+  // photoUrl: "",
+  token: sessionStorage.getItem("userToken")
 }
 
 export default state

@@ -50,12 +50,12 @@ const sideItems = [
     slug: "/proposals",
     icon: "CircleIcon"
   },
-  {
-    name: "Add New Proposal",
-    url: "/proposals/add",
-    slug: "/proposals/add",
-    icon: "PlusIcon"
-  },
+  // {
+  //   name: "Add New Proposal",
+  //   url: "/proposals/add",
+  //   slug: "/proposals/add",
+  //   icon: "PlusIcon"
+  // },
   {header: "Payments"},
   {
     name: "View Transactions",

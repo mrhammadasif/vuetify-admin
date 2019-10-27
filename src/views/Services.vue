@@ -81,35 +81,32 @@
                 {{ startCase(tr.scope.serviceType) }}
               </vs-td>
 
-              <vs-td :data="tr.createdAt">
-                <vx-tooltip :text="tr.createdAt | formatDate">
-                  {{ tr.createdAt | elapsedTime }}
-                </vx-tooltip>
-              </vs-td>
+              <vx-tooltip :text="tr.createdAt | formatDate">
+                <vs-td :data="tr.createdAt">
+                  <span>{{ tr.createdAt | elapsedTime }}</span>
+                </vs-td>
+              </vx-tooltip>
               <vs-td>
                 <div class="flex justify-end">
-                  <vx-tooltip :text="tr.isFav ? 'Remove from Favorite' : 'Mark as Favorite'">
-                    <vs-button
-                      :color="tr.isFav ? 'primary' : 'light'"
-                      class="mr-2"
-                      icon="star"
-                      type="filled"
-                      @click="toggleFavorite(tr)"/>
-                  </vx-tooltip>
-                  <vx-tooltip text="View / Edit">
-                    <vs-button
-                      class="mr-2"
-                      type="filled"
-                      icon="edit"
-                      @click="$vs.dialog({type: 'alert', title: `Service Detail`,text: `${JSON.stringify(tr, null, '\t')}`})" />
-                  </vx-tooltip>
-                  <vx-tooltip text="Delete">
-                    <vs-button
-                      type="filled"
-                      icon="delete"
-                      color="danger"
-                      @click="deleteRow(tr._id)"/>
-                  </vx-tooltip>
+
+                  <vs-button
+                    :color="tr.isFav ? 'primary' : 'light'"
+                    class="mr-2"
+                    icon="star"
+                    type="filled"
+                    @click="toggleFavorite(tr)"/>
+
+                  <vs-button
+                    class="mr-2"
+                    type="filled"
+                    icon="info"
+                    @click="$router.push(`/services/detail/${tr._id}`)" />
+                  <vs-button
+                    type="filled"
+                    icon="delete"
+                    color="danger"
+                    @click="deleteRow(tr._id)"/>
+
                 </div>
               </vs-td>
               <!-- <vs-td :data="tr.statusDisplayName">

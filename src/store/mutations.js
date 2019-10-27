@@ -5,11 +5,8 @@ const mutations = {
   // SIDEBAR & UI UX
   // ////////////////////////////////////////////
 
-  LOGIN (state, token) {
-    sessionStorage.setItem("userToken",  token)
-  },
-  LOGOUT () {
-    sessionStorage.removeItem("userToken")
+  SET_TOKEN (state, token) {
+    state.token = token
   },
   UPDATE_SIDEBAR_WIDTH (state, width) {
     state.sidebarWidth = width
@@ -88,16 +85,6 @@ const mutations = {
     })
     if (!downToUp) {
       state.starredPages.splice(10, 0, lastItemInStarredLimited)
-    }
-  },
-
-  // AUTH MUTATIONS
-  LOAD_PROFILE_VARIABLES (state) {
-    const userInfo = !!localStorage.getItem("userInfo") ? JSON.parse(localStorage.getItem("userInfo")) : null
-    if (userInfo) {
-      state.username = userInfo.given_name + " " + userInfo.family_name || ""
-      state.email = userInfo.email || ""
-      state.photoUrl = userInfo.photoURL || ""
     }
   },
   DO_LOGOUT_USER () {

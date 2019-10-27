@@ -45,24 +45,14 @@ const actions = {
   arrangeStarredPagesMore ({commit}, list) {
     commit("ARRANGE_STARRED_PAGES_MORE", list)
   },
-  loadTokenFromSession ({commit}) {
-    const ss = sessionStorage.getItem("userToken")
-    if (ss) {
-      commit("LOGIN", ss)
-      return true
-    }
-    else {
-      return false
-    }
-  },
-  loginUser ({commit}, {token}) {
+  loginUser ({commit}, token) {
     sessionStorage.setItem("userToken", token)
-    commit("LOGIN", token)
+    commit("SET_TOKEN", token)
   },
   logoutUser ({commit}) {
-    commit("LOGOUT")
     sessionStorage.clear()
-    // window.location = "/"
+    commit("SET_TOKEN", null)
+    window.location = "/"
   }
 }
 
