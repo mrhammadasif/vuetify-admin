@@ -16,13 +16,7 @@
     }
   ],
   "files.exclude": {
-    "*.csproj": true,
-    "*.cs": true,
-    "PackageRoot": true,
-    "wwwroot": true,
+    "dist": true,
     "node_modules": true,
-    "Properties": true,
-    "bin": true,
-    "obj": true
   }
 }
