@@ -3,13 +3,14 @@
     <div class="vx-navbar-wrapper">
       <vs-navbar
         :class="classObj"
-        class="vx-navbar navbar-custom">
-
+        class="vx-navbar navbar-custom"
+      >
         <!-- SM - OPEN SIDEBAR BUTTON -->
         <feather-icon
           class="sm:inline-flex xl:hidden cursor-pointer mr-1"
           icon="MenuIcon"
-          @click.stop="showSidebar"/>
+          @click.stop="showSidebar"
+        />
         <!-- v-if="breakpoint != 'md'" -->
 
         <!-- <VxBreadcrumb /> -->
@@ -23,14 +24,16 @@
           <vs-dropdown
             vs-custom-content
             vs-trigger-click
-            class="cursor-pointer">
+            class="cursor-pointer"
+          >
             <div class="con-img ml-3 flex items-center">
               <!-- v-if="activeUserImg.startsWith('http')"
                 :src="activeUserImg" -->
 
               <vs-icon
                 size="32px"
-                icon="account_circle" />
+                icon="account_circle"
+              />
               <vs-icon
                 size="24px"
                 icon="arrow_drop_down"
@@ -40,19 +43,26 @@
               <ul style="min-width: 12rem">
                 <li
                   class="flex py-2 px-4 cursor-pointer hover:font-bold"
-                  @click="isDarkModeOn = !isDarkModeOn"><feather-icon
+                  @click="isDarkModeOn = !isDarkModeOn"
+                >
+                  <feather-icon
                     icon="MoonIcon"
-                    svg-classes="w-4 h-4"/> <span class="ml-2">{{ isDarkModeOn ? 'Light Mode' :'Dark Mode' }}</span></li>
+                    svg-classes="w-4 h-4"
+                  /> <span class="ml-2">{{ isDarkModeOn ? 'Light Mode' :'Dark Mode' }}</span>
+                </li>
                 <li
                   class="flex py-2 px-4 cursor-pointer hover:font-bold"
-                  @click="logout"><feather-icon
+                  @click="logout"
+                >
+                  <feather-icon
                     icon="LogOutIcon"
-                    svg-classes="w-4 h-4"/> <span class="ml-2">Logout</span></li>
+                    svg-classes="w-4 h-4"
+                  /> <span class="ml-2">Logout</span>
+                </li>
               </ul>
             </vs-dropdown-menu>
           </vs-dropdown>
         </div>
-
       </vs-navbar>
     </div>
   </div>
@@ -87,12 +97,12 @@ export default {
       }
     }
   },
-  components: {
-    VuePerfectScrollbar,
-    draggable,
-    VxBreadcrumb,
-    Popper
-  },
+  // components: {
+  // VuePerfectScrollbar,
+  // draggable,
+  // VxBreadcrumb,
+  // Popper
+  // },
   props: {
     showBookmarkContainer: {
       type: Boolean,
@@ -123,6 +133,7 @@ export default {
       if (this.sidebarWidth == "default") {return "navbar-default"}
       else if (this.sidebarWidth == "reduced") {return "navbar-reduced"}
       else if (this.sidebarWidth) {return "navbar-full"}
+      return ""
     },
 
     // BOOKMARK & SEARCH

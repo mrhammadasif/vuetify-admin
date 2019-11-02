@@ -1,12 +1,14 @@
 <template>
   <div
     id="page-login"
-    class="h-screen flex w-full vx-row no-gutter items-center justify-center">
+    class="h-screen flex w-full vx-row no-gutter items-center justify-center"
+  >
     <div class="vx-col sm:w-1/4 sm:m-0 m-4">
       <vx-card>
         <div
           slot="no-body"
-          class="bg-white">
+          class="bg-white"
+        >
           <div class="vx-row no-gutter justify-center items-center">
             <div class="vx-col sm:w-full d-theme-dark-bg">
               <div class="p-8">
@@ -16,23 +18,25 @@
                   <p>Welcome back, please login to your account.</p>
                 </div>
                 <vs-input
-                  v-validate="'required|email|min:3'"
                   v-model="email"
+                  v-validate="'required|email|min:3'"
                   data-vv-validate-on="blur"
                   name="email"
                   label-placeholder="Email"
-                  class="w-full no-icon-border"/>
+                  class="w-full no-icon-border"
+                />
                 <span class="text-danger text-sm">{{ errors.first('email') }}</span>
 
                 <vs-input
-                  v-validate="'required|min:6|max:10'"
                   v-model="password"
+                  v-validate="'required|min:6|max:10'"
                   data-vv-validate-on="blur"
                   type="password"
                   name="password"
 
                   label-placeholder="Password"
-                  class="w-full mt-6 no-icon-border" />
+                  class="w-full mt-6 no-icon-border"
+                />
                 <span class="text-danger text-sm">{{ errors.first('password') }}</span>
 
                 <!-- <div class="flex flex-wrap justify-between my-5">
@@ -48,7 +52,10 @@
                   <vs-button
                     :disabled="!validateForm"
                     class="float-right"
-                    @click="login">Login</vs-button>
+                    @click="login"
+                  >
+                    Login
+                  </vs-button>
                 </div>
               </div>
             </div>
@@ -79,6 +86,8 @@ export default {
   },
   methods: {
     login () {
+      this.$router.push("/")
+      return
       // const payload = {
       //   checkbox_remember_me: this.checkbox_remember_me,
       //   userDetails: ,

@@ -4,77 +4,94 @@
       <vx-card>
         <div
           slot="no-body"
-          class="full-page-bg-color">
+          class="full-page-bg-color"
+        >
           <div class="vx-row no-gutter">
             <div class="vx-col hidden sm:hidden md:hidden lg:block lg:w-1/2 mx-auto self-center">
               <img
                 src="@/assets/images/pages/register.jpg"
                 alt="register"
-                class="mx-auto">
+                class="mx-auto"
+              >
             </div>
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center  d-theme-dark-bg">
               <div class="p-8">
                 <div class="vx-card__title">
-                  <h4 class="mb-4">Create Account</h4>
+                  <h4 class="mb-4">
+                    Create Account
+                  </h4>
                   <p>Fill the below form to create a new account.</p>
                 </div>
                 <div class="clearfix">
                   <vs-input
-                    v-validate="'required|alpha_dash|min:3'"
                     v-model="username"
+                    v-validate="'required|alpha_dash|min:3'"
                     data-vv-validate-on="blur"
                     label-placeholder="Username"
                     name="username"
                     placeholder="Username"
-                    class="w-full" />
+                    class="w-full"
+                  />
                   <span class="text-danger text-sm">{{ errors.first('username') }}</span>
 
                   <vs-input
-                    v-validate="'required|email'"
                     v-model="email"
+                    v-validate="'required|email'"
                     data-vv-validate-on="blur"
                     name="email"
                     type="email"
                     label-placeholder="Email"
                     placeholder="Email"
-                    class="w-full mt-6" />
+                    class="w-full mt-6"
+                  />
                   <span class="text-danger text-sm">{{ errors.first('email') }}</span>
 
                   <vs-input
-                    v-validate="'required|min:6|max:10'"
                     ref="password"
                     v-model="password"
+                    v-validate="'required|min:6|max:10'"
                     type="password"
                     data-vv-validate-on="blur"
                     name="password"
                     label-placeholder="Password"
                     placeholder="Password"
-                    class="w-full mt-6" />
+                    class="w-full mt-6"
+                  />
                   <span class="text-danger text-sm">{{ errors.first('password') }}</span>
 
                   <vs-input
-                    v-validate="'min:6|max:10|confirmed:password'"
                     v-model="confirm_password"
+                    v-validate="'min:6|max:10|confirmed:password'"
                     type="password"
                     data-vv-validate-on="blur"
                     data-vv-as="password"
                     name="confirm_password"
                     label-placeholder="Confirm Password"
                     placeholder="Confirm Password"
-                    class="w-full mt-6" />
+                    class="w-full mt-6"
+                  />
                   <span class="text-danger text-sm">{{ errors.first('confirm_password') }}</span>
 
                   <vs-checkbox
                     v-model="isTermsConditionAccepted"
-                    class="mt-6">I accept the terms & conditions.</vs-checkbox>
+                    class="mt-6"
+                  >
+                    I accept the terms & conditions.
+                  </vs-checkbox>
                   <vs-button
                     type="border"
                     to="/pages/login"
-                    class="mt-6">Login</vs-button>
+                    class="mt-6"
+                  >
+                    Login
+                  </vs-button>
                   <vs-button
                     :disabled="!validateForm"
                     class="float-right mt-6"
-                    @click="registerUser">Register</vs-button>
+                    @click="registerUser"
+                  >
+                    Register
+                  </vs-button>
                 </div>
               </div>
             </div>

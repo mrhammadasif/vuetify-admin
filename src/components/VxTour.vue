@@ -1,7 +1,8 @@
 <template>
   <v-tour
     :steps="steps"
-    name="vuesaxTour">
+    name="vuesaxTour"
+  >
     <template slot-scope="tour">
       <transition name="fade">
         <template v-for="(step, index) of tour.steps">
@@ -18,7 +19,8 @@
           >
             <div
               slot="actions"
-              class="flex justify-center">
+              class="flex justify-center"
+            >
               <vs-button
                 v-if="tour.currentStep != tour.steps.length - 1"
                 size="small"

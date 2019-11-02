@@ -5,40 +5,50 @@
       <vx-card>
         <div
           slot="no-body"
-          class="full-page-bg-color">
+          class="full-page-bg-color"
+        >
           <div class="vx-row no-gutter">
             <div class="vx-col hidden sm:hidden md:hidden lg:block lg:w-1/2 mx-auto self-center">
               <img
                 src="@/assets/images/pages/lock-screen.png"
                 alt="login"
-                class="mx-auto">
+                class="mx-auto"
+              >
             </div>
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center d-theme-dark-bg">
               <div class="p-8">
                 <div class="vx-card__title mb-8">
-                  <h4 class="mb-4">Your Session is locked</h4>
+                  <h4 class="mb-4">
+                    Your Session is locked
+                  </h4>
                 </div>
                 <vs-input
                   v-model="value1"
                   icon="icon icon-user"
                   icon-pack="feather"
                   label-placeholder="Username"
-                  class="w-full mb-6 no-icon-border"/>
+                  class="w-full mb-6 no-icon-border"
+                />
                 <vs-input
                   v-model="value2"
                   icon="icon icon-lock"
                   icon-pack="feather"
                   type="password"
                   label-placeholder="Password"
-                  class="w-full mb-6 no-icon-border" />
+                  class="w-full mb-6 no-icon-border"
+                />
 
                 <div class="flex justify-between flex-wrap">
                   <router-link
                     to="/pages/login"
-                    class="mb-4">Are you not John Doe?</router-link>
-                  <vs-button class="ml-2">Unlock</vs-button>
+                    class="mb-4"
+                  >
+                    Are you not John Doe?
+                  </router-link>
+                  <vs-button class="ml-2">
+                    Unlock
+                  </vs-button>
                 </div>
-
               </div>
             </div>
           </div>

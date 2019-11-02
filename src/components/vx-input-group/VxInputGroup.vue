@@ -1,11 +1,11 @@
 <template>
   <div class="vx-input-group flex">
-
     <!-- SLOT: PREPEND -->
     <div
       v-if="this.$slots.prepend"
       :class="prependClasses"
-      class="vx-input-group-prepend flex">
+      class="vx-input-group-prepend flex"
+    >
       <slot name="prepend"/>
     </div>
 
@@ -18,7 +18,8 @@
     <div
       v-if="this.$slots.append"
       :class="appendClasses"
-      class="vx-input-group-append flex">
+      class="vx-input-group-append flex"
+    >
       <slot name="append"/>
     </div>
   </div>

@@ -4,13 +4,16 @@
     <div class="vx-col sm:w-1/2 md:w-1/2 lg:w-2/5 m-4">
       <vx-card>
         <div class="vx-card__title mb-6">
-          <h2 class="text-center">We are launching soon</h2>
+          <h2 class="text-center">
+            We are launching soon
+          </h2>
         </div>
         <img
           src="../../assets/images/pages/rocket.png"
           alt="coming-soon"
           class="mx-auto mb-2"
-          width="150">
+          width="150"
+        >
         <!-- <p>Thank you for checking out our app. We are under construction, we will be here soon with our new awesome app. </p> -->
         <div class="count-down">
           <countdown :time="new Date('03/09/2021 00:00:00').getTime() - new Date().getTime()">
@@ -34,17 +37,21 @@
             </template>
           </countdown>
         </div>
-        <vs-divider position="center">Subscribe</vs-divider>
+        <vs-divider position="center">
+          Subscribe
+        </vs-divider>
         <div class="subscription">
           <span>If you would like to be notified when our app is live, Please subscribe to our mailing list.</span>
           <vs-input
             v-model="value1"
             type="email"
             label-placeholder="Email"
-            class="w-full mb-4" />
-          <vs-button class="w-full">Subscribe</vs-button>
+            class="w-full mb-4"
+          />
+          <vs-button class="w-full">
+            Subscribe
+          </vs-button>
         </div>
-
       </vx-card>
     </div>
   </div>

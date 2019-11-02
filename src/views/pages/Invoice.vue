@@ -2,13 +2,13 @@
 <template>
   <div id="invoice-page">
     <vx-card>
-
       <!-- INVOICE METADATA -->
       <div class="vx-row leading-loose p-base">
         <div class="vx-col w-full md:w-1/2 mt-base">
           <img
             src="../../assets/images/logo/logo.svg"
-            alt="vuesax-logo">
+            alt="vuesax-logo"
+          >
         </div>
         <div class="vx-col w-full md:w-1/2 text-right">
           <h1>Invoice</h1>
@@ -16,7 +16,9 @@
             <h6>INVOICE NO.</h6>
             <p>{{ invoiceDetails.invoiceNo }}</p>
 
-            <h6 class="mt-4">INVOICE DATE</h6>
+            <h6 class="mt-4">
+              INVOICE DATE
+            </h6>
             <p>{{ invoiceDetails.invoiceDate | date(true) }}</p>
           </div>
         </div>
@@ -32,13 +34,15 @@
             <p class="flex items-center">
               <feather-icon
                 icon="MailIcon"
-                svg-classes="h-4 w-4"></feather-icon>
+                svg-classes="h-4 w-4"
+              ></feather-icon>
               <span class="ml-2">{{ recipientDetails.mailId }}</span>
             </p>
             <p class="flex items-center">
               <feather-icon
                 icon="PhoneIcon"
-                svg-classes="h-4 w-4"></feather-icon>
+                svg-classes="h-4 w-4"
+              ></feather-icon>
               <span class="ml-2">{{ recipientDetails.mobile }}</span>
             </p>
           </div>
@@ -54,17 +58,18 @@
             <p class="flex items-center justify-end">
               <feather-icon
                 icon="MailIcon"
-                svg-classes="h-4 w-4"></feather-icon>
+                svg-classes="h-4 w-4"
+              ></feather-icon>
               <span class="ml-2">{{ companyDetails.mailId }}</span>
             </p>
             <p class="flex items-center justify-end">
               <feather-icon
                 icon="PhoneIcon"
-                svg-classes="h-4 w-4"></feather-icon>
+                svg-classes="h-4 w-4"
+              ></feather-icon>
               <span class="ml-2">{{ companyDetails.mobile }}</span>
             </p>
           </div>
-
         </div>
       </div>
 
@@ -73,7 +78,8 @@
         <!-- INVOICE TASKS TABLE -->
         <vs-table
           :data="invoiceData.tasks"
-          hover-flat>
+          hover-flat
+        >
           <!-- HEADER -->
           <template slot="thead">
             <vs-th>TASK DESCRIPTION</vs-th>
@@ -86,11 +92,20 @@
           <template slot-scope="{data}">
             <vs-tr
               v-for="(tr, index) in data"
-              :key="index">
-              <vs-td :data="data[index].task">{{ data[index].task }}</vs-td>
-              <vs-td :data="data[index].hours">{{ data[index].hours }}</vs-td>
-              <vs-td :data="data[index].rate">{{ data[index].rate }} USD</vs-td>
-              <vs-td :data="data[index].amount">{{ data[index].amount }} USD</vs-td>
+              :key="index"
+            >
+              <vs-td :data="data[index].task">
+                {{ data[index].task }}
+              </vs-td>
+              <vs-td :data="data[index].hours">
+                {{ data[index].hours }}
+              </vs-td>
+              <vs-td :data="data[index].rate">
+                {{ data[index].rate }} USD
+              </vs-td>
+              <vs-td :data="data[index].amount">
+                {{ data[index].amount }} USD
+              </vs-td>
             </vs-tr>
           </template>
         </vs-table>
@@ -99,7 +114,8 @@
         <vs-table
           :data="invoiceData"
           hover-flat
-          class="w-1/2 ml-auto mt-4">
+          class="w-1/2 ml-auto mt-4"
+        >
           <vs-tr>
             <vs-th>SUBTOTAL</vs-th>
             <vs-td>{{ invoiceData.subtotal }} USD</vs-td>
@@ -117,7 +133,9 @@
 
       <!-- INVOICE FOOTER -->
       <div class="invoice__footer text-right p-base">
-        <p class="mb-4">Transfer the amounts to the business amount below. Please include invoice number on your check.</p>
+        <p class="mb-4">
+          Transfer the amounts to the business amount below. Please include invoice number on your check.
+        </p>
         <p>
           <span class="mr-8">BANK: <span class="font-semibold">FTSBUS33</span></span>
           <span>IBAN: <span class="font-semibold"> G882-1111-2222-3333 </span></span>

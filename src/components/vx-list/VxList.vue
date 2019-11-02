@@ -4,10 +4,12 @@
     <li
       v-for="(item, index) in list"
       :key="index"
-      class="list__item">
+      class="list__item"
+    >
       <feather-icon
         :icon="icon"
-        class="w-5 h-5 mr-1"/><span v-html="item"/>
+        class="w-5 h-5 mr-1"
+      /><span v-html="item"/>
     </li>
   </ul>
 </template>

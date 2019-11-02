@@ -2,7 +2,8 @@
 <template>
   <div
     :class="[navbarClasses, footerClasses, {'app-page': isAppPage}]"
-    class="layout--main">
+    class="layout--main"
+  >
     <vx-tour :steps="steps" />
     <vx-sidebar
       id="sidebar-id"
@@ -13,11 +14,13 @@
 
     <div
       id="content-area"
-      :class="[contentAreaClass, {'show-overlay': bodyOverlay}]">
+      :class="[contentAreaClass, {'show-overlay': bodyOverlay}]"
+    >
       <div id="content-overlay"/>
 
       <div
-        class="content-wrapper ">
+        class="content-wrapper "
+      >
         <div
           ref="loadingNavBar"
           class="vs-con-loading__container"
@@ -32,7 +35,8 @@
         <div class="router-view">
           <div
             :class="{'mt-0': navbarType == 'hidden'}"
-            class="router-content">
+            class="router-content"
+          >
             <transition :name="routerTransition">
               <div
                 v-if="$route.meta.breadcrumb || $route.meta.pageTitle"
@@ -42,28 +46,34 @@
                   :class="{'pr-4 border-0 md:border-r border-t-0 border-b-0 border-l-0 border-solid border-grey-light' : $route.meta.breadcrumb}"
                   class="content-area__heading"
                 >
-                  <h2 class="mb-1">{{ routeTitle }}</h2>
+                  <h2 class="mb-1">
+                    {{ routeTitle }}
+                  </h2>
                 </div>
 
                 <!-- BREADCRUMB -->
                 <vx-breadcrumb
                   v-if="$route.meta.breadcrumb"
-                  class="ml-4 md:block hidden"/>
+                  class="ml-4 md:block hidden"
+                />
 
                 <!-- DROPDOWN -->
                 <vs-dropdown
                   class="ml-auto md:block hidden cursor-pointer"
-                  vs-trigger-click>
+                  vs-trigger-click
+                >
                   <vs-button
                     radius
                     icon="icon-settings"
-                    icon-pack="feather"/>
+                    icon-pack="feather"
+                  />
 
                   <vs-dropdown-menu class="w-32">
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/pages/profile')">
+                        @click="$router.push('/pages/profile')"
+                      >
                         <feather-icon
                           icon="UserIcon"
                           class="inline-block mr-2"
@@ -76,7 +86,8 @@
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/apps/todo')">
+                        @click="$router.push('/apps/todo')"
+                      >
                         <feather-icon
                           icon="CheckSquareIcon"
                           class="inline-block mr-2"
@@ -89,7 +100,8 @@
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/apps/email')">
+                        @click="$router.push('/apps/email')"
+                      >
                         <feather-icon
                           icon="MailIcon"
                           class="inline-block mr-2"
@@ -106,14 +118,17 @@
               <back-to-top
                 v-if="!hideScrollToTop"
                 bottom="5%"
-                visibleoffset="500">
+                visibleoffset="500"
+              >
                 <vs-button
                   icon="arrow_upward"
-                  class="shadow-lg"/>
+                  class="shadow-lg"
+                />
               </back-to-top>
               <transition
                 :name="routerTransition"
-                mode="out-in">
+                mode="out-in"
+              >
                 <router-view @changeRouteTitle="changeRouteTitle"/>
               </transition>
             </div>
@@ -193,6 +208,7 @@ export default {
       } else if (this.sidebarWidth) {
         return "content-area-full"
       }
+      else {return ""}
     },
     navbarClasses () {
       return {

@@ -9,55 +9,69 @@
       {'card-border': cardBorder},
       cardClasses ]"
     :style="cardStyles"
-    class="vx-card">
+    class="vx-card"
+  >
     <div
       v-if="hasHeader"
-      class="vx-card__header">
-
+      class="vx-card__header"
+    >
       <!-- card title -->
       <div class="vx-card__title">
         <h4
           v-if="this.$props.title"
           :style="titleStyles"
-          :class="titleClasses">{{ title }}</h4>
+          :class="titleClasses"
+        >
+          {{ title }}
+        </h4>
         <h6
           v-if="this.$props.subtitle"
           :style="subtitleStyles"
-          :class="subtitleClasses">{{ subtitle }}</h6>
+          :class="subtitleClasses"
+        >
+          {{ subtitle }}
+        </h6>
       </div>
 
       <!-- card actions -->
       <div
         v-if="hasAction"
-        class="vx-card__actions">
+        class="vx-card__actions"
+      >
         <slot name="actions">
           <div
             v-if="(actionButtons || collapseAction || refreshContentAction || removeCardAction) && !codeToggler"
-            class="vx-card__action-buttons">
+            class="vx-card__action-buttons"
+          >
             <feather-icon
               v-if="actionButtons || collapseAction"
               :class="{rotate180: !isContentCollapsed}"
               icon="ChevronUpIcon"
               class="ml-4"
-              @click="toggleContent" />
+              @click="toggleContent"
+            />
             <feather-icon
               v-if="actionButtons || refreshContentAction"
               icon="RotateCwIcon"
               class="ml-4"
-              @click="refreshcard" />
+              @click="refreshcard"
+            />
             <feather-icon
               v-if="actionButtons || removeCardAction"
               icon="XIcon"
               class="ml-4"
-              @click="removeCard" />
+              @click="removeCard"
+            />
           </div>
           <div
             v-if="codeToggler && !actionButtons"
-            class="vx-card__code-toggler sm:block hidden">
+            class="vx-card__code-toggler sm:block hidden"
+          >
             <feather-icon
               :class="{'border border-solid border-primary border-t-0 border-r-0 border-l-0': showCode}"
               icon="CodeIcon"
-              @click="toggleCode"/>
+              @click="toggleCode"
+            />
           </div>
         </slot>
       </div>
@@ -67,15 +81,16 @@
       ref="content"
       :class="[{collapsed: isContentCollapsed}, {'overflow-hidden': tempHidden}]"
       :style="StyleItems"
-      class="vx-card__collapsible-content vs-con-loading__container">
-
+      class="vx-card__collapsible-content vs-con-loading__container"
+    >
       <!-- content with no body(no padding) -->
       <slot name="no-body"/>
 
       <!-- content inside body(with padding) -->
       <div
         v-if="this.$slots.default"
-        class="vx-card__body">
+        class="vx-card__body"
+      >
         <slot/>
       </div>
 
@@ -84,7 +99,8 @@
 
       <div
         v-if="this.$slots.footer"
-        class="vx-card__footer">
+        class="vx-card__footer"
+      >
         <slot name="footer"/>
       </div>
     </div>
@@ -94,7 +110,8 @@
       ref="codeContainer"
       :style="codeContainerStyles"
       :class="{collapsed: !showCode}"
-      class="vx-card__code-container">
+      class="vx-card__code-container"
+    >
       <div class="code-content">
         <prism :language="codeLanguage">
           <slot name="codeContainer"/>

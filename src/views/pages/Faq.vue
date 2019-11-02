@@ -5,8 +5,12 @@
     <!-- JUMBOTRON -->
     <div class="faq-jumbotron">
       <div class="faq-jumbotron-content lg:p-32 md:p-24 sm:p-16 p-8 rounded-lg mb-base">
-        <h1 class="mb-1 text-white">Have Any Questions?</h1>
-        <p class="text-white">Bonbon sesame snaps lemon drops marshmallow ice cream carrot cake croissant wafer.</p>
+        <h1 class="mb-1 text-white">
+          Have Any Questions?
+        </h1>
+        <p class="text-white">
+          Bonbon sesame snaps lemon drops marshmallow ice cream carrot cake croissant wafer.
+        </p>
         <vs-input
           v-model="faqSearchQuery"
           placeholder="Search"
@@ -14,7 +18,8 @@
           icon="icon-search"
           size="large"
           class="w-full mt-6"
-          icon-no-border />
+          icon-no-border
+        />
       </div>
     </div>
     <div class="vx-row">
@@ -26,10 +31,12 @@
               v-for="category in categories"
               :key="category.id"
               class="p-2 font-medium flex items-center"
-              @click="faqFilter = category.id">
+              @click="faqFilter = category.id"
+            >
               <div
                 :class="'bg-' + category.color"
-                class="h-3 w-3 rounded-full mr-2"></div><span class="cursor-pointer">{{ category.name }}</span>
+                class="h-3 w-3 rounded-full mr-2"
+              ></div><span class="cursor-pointer">{{ category.name }}</span>
             </li>
           </ul>
 
@@ -40,14 +47,18 @@
             <li
               v-for="supporter in supporters"
               :key="supporter.id"
-              class="mt-4">
+              class="mt-4"
+            >
               <div class="flex items-center">
                 <vs-avatar
                   :src="require(`@/assets/images/portrait/small/${supporter.img}`)"
                   class="mr-3"
-                  size="35px" />
+                  size="35px"
+                />
                 <div class="leading-tight">
-                  <p class="font-semibold">{{ supporter.name }}</p>
+                  <p class="font-semibold">
+                    {{ supporter.name }}
+                  </p>
                   <small>{{ supporter.profession }}</small>
                 </div>
               </div>
@@ -61,17 +72,20 @@
         <vs-collapse
           accordion
           type="margin"
-          class="p-0">
+          class="p-0"
+        >
           <vs-collapse-item
             v-for="(que,index) in filteredFaq"
-            :class="{'mt-0': !index}"
             :key="que.id"
-            class="faq-bg rounded-lg">
-            <div slot="header"><h5>{{ que.question }}</h5></div>
+            :class="{'mt-0': !index}"
+            class="faq-bg rounded-lg"
+          >
+            <div slot="header">
+              <h5>{{ que.question }}</h5>
+            </div>
             <p>{{ que.ans }}</p>
           </vs-collapse-item>
         </vs-collapse>
-
       </div>
     </div>
   </div>
