@@ -2,50 +2,41 @@
 <template>
   <div
     :class="[navbarClasses, footerClasses, {'app-page': isAppPage}]"
-    class="layout--main"
-  >
+    class="layout--main">
     <vx-tour :steps="steps" />
     <vx-sidebar
       id="sidebar-id"
       :sidebar-items="sidebarItems"
       title="Admin Panel"
-      parent=".layout--main"
-    />
+      parent=".layout--main" />
 
     <div
       id="content-area"
-      :class="[contentAreaClass, {'show-overlay': bodyOverlay}]"
-    >
-      <div id="content-overlay"/>
+      :class="[contentAreaClass, {'show-overlay': bodyOverlay}]">
+      <div id="content-overlay" />
 
       <div
-        class="content-wrapper "
-      >
+        class="content-wrapper ">
         <div
           ref="loadingNavBar"
-          class="vs-con-loading__container"
-        >
+          class="vs-con-loading__container">
           <the-navbar
             :navbar-color="navbarColor"
             :show-bookmark-container="false"
-            :class="[{'text-white': isNavbarDark && !isThemeDark}, {'text-base': !isNavbarDark && isThemeDark}]"
-          />
+            :class="[{'text-white': isNavbarDark && !isThemeDark}, {'text-base': !isNavbarDark && isThemeDark}]" />
         </div>
 
         <div class="router-view">
           <div
             :class="{'mt-0': navbarType == 'hidden'}"
-            class="router-content"
-          >
+            class="router-content">
             <transition :name="routerTransition">
               <div
                 v-if="$route.meta.breadcrumb || $route.meta.pageTitle"
-                class="router-header flex flex-wrap items-center mb-6"
-              >
+                class="router-header flex flex-wrap items-center mb-6">
                 <div
                   :class="{'pr-4 border-0 md:border-r border-t-0 border-b-0 border-l-0 border-solid border-grey-light' : $route.meta.breadcrumb}"
-                  class="content-area__heading"
-                >
+                  class="content-area__heading">
                   <h2 class="mb-1">
                     {{ routeTitle }}
                   </h2>
@@ -54,31 +45,26 @@
                 <!-- BREADCRUMB -->
                 <vx-breadcrumb
                   v-if="$route.meta.breadcrumb"
-                  class="ml-4 md:block hidden"
-                />
+                  class="ml-4 md:block hidden" />
 
                 <!-- DROPDOWN -->
                 <vs-dropdown
                   class="ml-auto md:block hidden cursor-pointer"
-                  vs-trigger-click
-                >
+                  vs-trigger-click>
                   <vs-button
                     radius
                     icon="icon-settings"
-                    icon-pack="feather"
-                  />
+                    icon-pack="feather" />
 
                   <vs-dropdown-menu class="w-32">
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/pages/profile')"
-                      >
+                        @click="$router.push('/pages/profile')">
                         <feather-icon
                           icon="UserIcon"
                           class="inline-block mr-2"
-                          svg-classes="w-4 h-4"
-                        />
+                          svg-classes="w-4 h-4" />
                         <span>Profile</span>
                       </div>
                     </vs-dropdown-item>
@@ -86,13 +72,11 @@
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/apps/todo')"
-                      >
+                        @click="$router.push('/apps/todo')">
                         <feather-icon
                           icon="CheckSquareIcon"
                           class="inline-block mr-2"
-                          svg-classes="w-4 h-4"
-                        />
+                          svg-classes="w-4 h-4" />
                         <span>Tasks</span>
                       </div>
                     </vs-dropdown-item>
@@ -100,13 +84,11 @@
                     <vs-dropdown-item>
                       <div
                         class="flex items-center"
-                        @click="$router.push('/apps/email')"
-                      >
+                        @click="$router.push('/apps/email')">
                         <feather-icon
                           icon="MailIcon"
                           class="inline-block mr-2"
-                          svg-classes="w-4 h-4"
-                        />
+                          svg-classes="w-4 h-4" />
                         <span>Inbox</span>
                       </div>
                     </vs-dropdown-item>
@@ -118,25 +100,22 @@
               <back-to-top
                 v-if="!hideScrollToTop"
                 bottom="5%"
-                visibleoffset="500"
-              >
+                visibleoffset="500">
                 <vs-button
                   icon="arrow_upward"
-                  class="shadow-lg"
-                />
+                  class="shadow-lg" />
               </back-to-top>
               <transition
                 :name="routerTransition"
-                mode="out-in"
-              >
-                <router-view @changeRouteTitle="changeRouteTitle"/>
+                mode="out-in">
+                <router-view @changeRouteTitle="changeRouteTitle" />
               </transition>
             </div>
           </div>
         </div>
       </div>
 
-      <the-footer/>
+      <the-footer />
     </div>
   </div>
 </template>

@@ -4,14 +4,12 @@
     <div slot="no-body">
       <div
         :class="{'flex justify-between flex-row-reverse items-center': iconRight}"
-        class="p-6 pb-0"
-      >
+        class="p-6 pb-0">
         <feather-icon
           :icon="icon"
           :class="[`text-${color}`, {'mb-4': !iconRight}]"
           :style="{background: `rgba(var(--vs-${color}),.15)`}"
-          class="p-3 inline-flex rounded-full"
-        />
+          class="p-3 inline-flex rounded-full" />
         <div>
           <h2 class="mb-1 font-bold">
             {{ statistic }}
@@ -22,16 +20,14 @@
 
       <div
         :id="chartData.id"
-        class="line-area-chart"
-      >
+        class="line-area-chart">
         <vue-apex-charts
           ref="apexChart"
           :type="type"
           :options="chartData.chartOptions"
           :series="chartData.series"
           height="100"
-          width="100%"
-        />
+          width="100%" />
       </div>
     </div>
   </vx-card>

@@ -1,8 +1,7 @@
 <template>
   <v-tour
     :steps="steps"
-    name="vuesaxTour"
-  >
+    name="vuesaxTour">
     <template slot-scope="tour">
       <transition name="fade">
         <template v-for="(step, index) of tour.steps">
@@ -15,12 +14,10 @@
             :stop="tour.stop"
             :is-first="tour.isFirst"
             :is-last="tour.isLast"
-            :labels="tour.labels"
-          >
+            :labels="tour.labels">
             <div
               slot="actions"
-              class="flex justify-center"
-            >
+              class="flex justify-center">
               <vs-button
                 v-if="tour.currentStep != tour.steps.length - 1"
                 size="small"
@@ -30,8 +27,7 @@
                 icon-after
                 color="#fff"
                 type="border"
-                @click="tour.stop"
-              >
+                @click="tour.stop">
                 Skip
               </vs-button>
 
@@ -43,8 +39,7 @@
                 color="#fff"
                 type="border"
                 class="mr-3"
-                @click="tour.previousStep"
-              >
+                @click="tour.previousStep">
                 Previous
               </vs-button>
 
@@ -57,8 +52,7 @@
                 color="#fff"
                 type="border"
                 class="btn-tour-next"
-                @click="tour.nextStep"
-              >
+                @click="tour.nextStep">
                 Next
               </vs-button>
 
@@ -71,8 +65,7 @@
                 color="#fff"
                 type="border"
                 class="btn-tour-finish"
-                @click="tour.stop"
-              >
+                @click="tour.stop">
                 Finish
               </vs-button>
             </div>

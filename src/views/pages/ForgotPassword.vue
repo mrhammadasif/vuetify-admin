@@ -5,15 +5,13 @@
       <vx-card>
         <div
           slot="no-body"
-          class="full-page-bg-color"
-        >
+          class="full-page-bg-color">
           <div class="vx-row">
             <div class="vx-col hidden sm:hidden md:hidden lg:block lg:w-1/2 mx-auto self-center">
               <img
                 src="@/assets/images/pages/forgot-password.png"
                 alt="login"
-                class="mx-auto"
-              >
+                class="mx-auto">
             </div>
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center d-theme-dark-bg">
               <div class="p-8">
@@ -28,13 +26,11 @@
                   v-model="value1"
                   type="email"
                   label-placeholder="Email"
-                  class="w-full mb-8"
-                />
+                  class="w-full mb-8" />
                 <vs-button
                   type="border"
                   to="/pages/login"
-                  class="px-4 w-full md:w-auto"
-                >
+                  class="px-4 w-full md:w-auto">
                   Back To Login
                 </vs-button>
                 <vs-button class="float-right px-4 w-full md:w-auto mt-3 mb-8 md:mt-0 md:mb-0">

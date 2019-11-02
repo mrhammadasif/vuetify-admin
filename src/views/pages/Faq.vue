@@ -18,8 +18,7 @@
           icon="icon-search"
           size="large"
           class="w-full mt-6"
-          icon-no-border
-        />
+          icon-no-border />
       </div>
     </div>
     <div class="vx-row">
@@ -31,12 +30,10 @@
               v-for="category in categories"
               :key="category.id"
               class="p-2 font-medium flex items-center"
-              @click="faqFilter = category.id"
-            >
+              @click="faqFilter = category.id">
               <div
                 :class="'bg-' + category.color"
-                class="h-3 w-3 rounded-full mr-2"
-              ></div><span class="cursor-pointer">{{ category.name }}</span>
+                class="h-3 w-3 rounded-full mr-2"></div><span class="cursor-pointer">{{ category.name }}</span>
             </li>
           </ul>
 
@@ -47,14 +44,12 @@
             <li
               v-for="supporter in supporters"
               :key="supporter.id"
-              class="mt-4"
-            >
+              class="mt-4">
               <div class="flex items-center">
                 <vs-avatar
                   :src="require(`@/assets/images/portrait/small/${supporter.img}`)"
                   class="mr-3"
-                  size="35px"
-                />
+                  size="35px" />
                 <div class="leading-tight">
                   <p class="font-semibold">
                     {{ supporter.name }}
@@ -72,14 +67,12 @@
         <vs-collapse
           accordion
           type="margin"
-          class="p-0"
-        >
+          class="p-0">
           <vs-collapse-item
             v-for="(que,index) in filteredFaq"
             :key="que.id"
             :class="{'mt-0': !index}"
-            class="faq-bg rounded-lg"
-          >
+            class="faq-bg rounded-lg">
             <div slot="header">
               <h5>{{ que.question }}</h5>
             </div>

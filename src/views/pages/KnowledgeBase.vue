@@ -16,8 +16,7 @@
           icon-pack="feather"
           icon="icon-search"
           size="large"
-          class="w-full no-icon-border mt-6"
-        />
+          class="w-full no-icon-border mt-6" />
       </div>
     </div>
 
@@ -27,15 +26,13 @@
         v-for="item in filteredKB"
         :key="item.id"
         class="vx-col w-full md:w-1/3 sm:w-1/2 mb-base"
-        @click="$router.push(item.url)"
-      >
+        @click="$router.push(item.url)">
         <vx-card class="text-center cursor-pointer">
           <img
             :src="require(`@/assets/images/pages/${item.graphic}`)"
             alt="graphic"
             width="180"
-            class="mx-auto mb-4"
-          >
+            class="mx-auto mb-4">
           <h4 class="mb-2">
             {{ item.title.toUpperCase() }}
           </h4>

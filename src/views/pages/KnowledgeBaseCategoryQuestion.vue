@@ -8,8 +8,7 @@
             <li
               v-for="que in relatedQuestions"
               :key="que.id"
-              class="py-2"
-            >
+              class="py-2">
               <router-link :to="que.answerUrl">
                 {{ que.question }}
               </router-link>
@@ -29,8 +28,7 @@
           <img
             :src="require(`@/assets/images/pages/${article.img}`)"
             alt="article-img"
-            class="responsive my-3 rounded"
-          />
+            class="responsive my-3 rounded" />
           <p class="mb-6">
             Candy canes oat cake biscuit halvah ice cream. Marshmallow icing topping toffee caramels dessert carrot cake. Liquorice soufflé brownie sugar plum dessert cotton candy. Cupcake halvah topping oat cake soufflé pastry dragée pudding cotton candy.
           </p>
@@ -46,23 +44,19 @@
             <div class="flex items-center justify-between">
               <router-link
                 to="/pages/knowledge-base/category/question"
-                class="flex items-center"
-              >
+                class="flex items-center">
                 <feather-icon
                   icon="ChevronsLeftIcon"
                   class="mr-2"
-                  svg-classes="h-4 w-4"
-                ></feather-icon> Previous Article
+                  svg-classes="h-4 w-4"></feather-icon> Previous Article
               </router-link>
               <router-link
                 to="/pages/knowledge-base/category/question"
-                class="flex items-center"
-              >
+                class="flex items-center">
                 Next Article <feather-icon
                   icon="ChevronsRightIcon"
                   class="ml-2"
-                  svg-classes="h-4 w-4"
-                ></feather-icon>
+                  svg-classes="h-4 w-4"></feather-icon>
               </router-link>
             </div>
           </template>

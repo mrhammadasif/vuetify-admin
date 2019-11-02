@@ -5,8 +5,7 @@
       <img
         src="../../assets/images/pages/500.png"
         alt="graphic-500"
-        class="mx-auto mb-4"
-      >
+        class="mx-auto mb-4">
       <h1 class="sm:mx-0 mx-4 mb-4 sm:mb-12 text-5xl d-theme-heading-color">
         Internal Server Error!
       </h1>
@@ -15,8 +14,7 @@
       </p>
       <vs-button
         size="large"
-        to="/"
-      >
+        to="/">
         Back to Home
       </vs-button>
     </div>

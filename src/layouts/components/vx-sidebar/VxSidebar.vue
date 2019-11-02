@@ -11,16 +11,13 @@
       :click-not-close="clickNotClose"
       :reduce-not-rebound="reduceNotRebound"
       default-index="-1"
-      class="sidebarx main-menu-sidebar items-no-padding"
-    >
+      class="sidebarx main-menu-sidebar items-no-padding">
       <div
         @mouseenter="sidebarMouseEntered"
-        @mouseleave="sidebarMouseLeave"
-      >
+        @mouseleave="sidebarMouseLeave">
         <div
           slot="header"
-          class="header-sidebar flex items-end justify-between bg-white mb-5"
-        >
+          class="header-sidebar flex items-end justify-between bg-white mb-5">
           <div class="logo flex items-center align-end">
             <MainLogo />
             <!-- <span
@@ -33,8 +30,7 @@
               <feather-icon
                 icon="XIcon"
                 class="m-0 cursor-pointer"
-                @click="$store.commit('TOGGLE_IS_SIDEBAR_ACTIVE', false)"
-              />
+                @click="$store.commit('TOGGLE_IS_SIDEBAR_ACTIVE', false)" />
             </template>
             <template v-else-if="!showCloseButton && !sidebarItemsMin">
               <feather-icon
@@ -43,38 +39,33 @@
                 icon="MenuIcon"
                 class="mr-0 cursor-pointer"
                 svg-classes="stroke-current"
-                @click="toggleReduce(true)"
-              />
+                @click="toggleReduce(true)" />
               <feather-icon
                 v-show="reduce"
                 id="btnSidebarToggler"
                 icon="CircleIcon"
                 class="mr-0 cursor-pointer"
                 svg-classes="stroke-current"
-                @click="toggleReduce(false)"
-              />
+                @click="toggleReduce(false)" />
             </template>
           </div>
         </div>
 
         <div
           v-show="showShadowBottom"
-          class="shadow-bottom"
-        />
+          class="shadow-bottom" />
 
         <VuePerfectScrollbar
           ref="mainSidebarPs"
           :settings="settings"
           class="scroll-area--main-sidebar pt-2"
-          @ps-scroll-y="psSectionScroll"
-        >
+          @ps-scroll-y="psSectionScroll">
           <template v-for="(sidebarItem, index) in sidebarItems">
             <!-- GROUP ITEM HEADER -->
             <span
               v-if="sidebarItem.header && !sidebarItemsMin"
               :key="`header-${index}`"
-              class="navigation-header truncate"
-            >{{ sidebarItem.header }}</span>
+              class="navigation-header truncate">{{ sidebarItem.header }}</span>
             <template v-else-if="!sidebarItem.header">
               <!-- IF IT'S SINGLE ITEM -->
               <vx-sidebar-item
@@ -86,17 +77,14 @@
                 :href="sidebarItem.slug == 'external' ? sidebarItem.url : ''"
                 :icon="sidebarItem.icon"
                 :target="sidebarItem.target"
-                :is-disabled="sidebarItem.isDisabled"
-              >
+                :is-disabled="sidebarItem.isDisabled">
                 <span
                   v-show="!sidebarItemsMin"
-                  class="truncate"
-                >{{ sidebarItem.name }}</span>
+                  class="truncate">{{ sidebarItem.name }}</span>
                 <vs-chip
                   v-if="sidebarItem.tag && (isMouseEnter || !reduce)"
                   :color="sidebarItem.tagColor"
-                  class="ml-auto"
-                >
+                  class="ml-auto">
                   {{ sidebarItem.tag }}
                 </vs-chip>
               </vx-sidebar-item>
@@ -109,8 +97,7 @@
                   :open-hover="openGroupHover"
                   :group="sidebarItem"
                   :group-index="index"
-                  :open="isGroupActive(sidebarItem)"
-                />
+                  :open="isGroupActive(sidebarItem)" />
               </template>
             </template>
           </template>
@@ -121,8 +108,7 @@
       v-if="!isSidebarActive"
       id="sidebar-swipe-area"
       v-hammer:swipe.right="onSwipeRightSidebarSwipeArea"
-      class="sidebar-swipe-area"
-    />
+      class="sidebar-swipe-area" />
   </div>
 </template>
 

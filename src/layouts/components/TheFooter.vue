@@ -2,8 +2,7 @@
 <template>
   <footer
     :class="classes"
-    class="the-footer flex-wrap justify-between"
-  >
+    class="the-footer flex-wrap justify-between">
     <span>COPYRIGHT @ {{ new Date().getFullYear() }}, All rights Reserved</span>
   </footer>
 </template>

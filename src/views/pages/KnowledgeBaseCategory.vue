@@ -9,8 +9,7 @@
       <div
         v-for="section in sections"
         :key="section.id"
-        class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base"
-      >
+        class="vx-col w-full sm:w-1/2 md:w-1/3 mb-base">
         <vx-card>
           <h4 class="mb-4">
             {{ section.title }}
@@ -19,8 +18,7 @@
             <li
               v-for="que in section.questions"
               :key="que.question"
-              class="py-2"
-            >
+              class="py-2">
               <router-link :to="que.answerUrl">
                 {{ que.question }}
               </router-link>

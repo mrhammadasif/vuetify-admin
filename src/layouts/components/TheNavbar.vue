@@ -3,18 +3,16 @@
     <div class="vx-navbar-wrapper">
       <vs-navbar
         :class="classObj"
-        class="vx-navbar navbar-custom"
-      >
+        class="vx-navbar navbar-custom">
         <!-- SM - OPEN SIDEBAR BUTTON -->
         <feather-icon
           class="sm:inline-flex xl:hidden cursor-pointer mr-1"
           icon="MenuIcon"
-          @click.stop="showSidebar"
-        />
+          @click.stop="showSidebar" />
         <!-- v-if="breakpoint != 'md'" -->
 
         <!-- <VxBreadcrumb /> -->
-        <vs-spacer/>
+        <vs-spacer />
 
         <!-- USER META -->
         <div class="the-navbar__user-meta flex items-center ml-2">
@@ -24,40 +22,33 @@
           <vs-dropdown
             vs-custom-content
             vs-trigger-click
-            class="cursor-pointer"
-          >
+            class="cursor-pointer">
             <div class="con-img ml-3 flex items-center">
               <!-- v-if="activeUserImg.startsWith('http')"
                 :src="activeUserImg" -->
 
               <vs-icon
                 size="32px"
-                icon="account_circle"
-              />
+                icon="account_circle" />
               <vs-icon
                 size="24px"
-                icon="arrow_drop_down"
-              />
+                icon="arrow_drop_down" />
             </div>
             <vs-dropdown-menu class="vx-navbar-dropdown">
               <ul style="min-width: 12rem">
                 <li
                   class="flex py-2 px-4 cursor-pointer hover:font-bold"
-                  @click="isDarkModeOn = !isDarkModeOn"
-                >
+                  @click="isDarkModeOn = !isDarkModeOn">
                   <feather-icon
                     icon="MoonIcon"
-                    svg-classes="w-4 h-4"
-                  /> <span class="ml-2">{{ isDarkModeOn ? 'Light Mode' :'Dark Mode' }}</span>
+                    svg-classes="w-4 h-4" /> <span class="ml-2">{{ isDarkModeOn ? 'Light Mode' :'Dark Mode' }}</span>
                 </li>
                 <li
                   class="flex py-2 px-4 cursor-pointer hover:font-bold"
-                  @click="logout"
-                >
+                  @click="logout">
                   <feather-icon
                     icon="LogOutIcon"
-                    svg-classes="w-4 h-4"
-                  /> <span class="ml-2">Logout</span>
+                    svg-classes="w-4 h-4" /> <span class="ml-2">Logout</span>
                 </li>
               </ul>
             </vs-dropdown-menu>

@@ -7,8 +7,7 @@
         <div class="vx-col w-full md:w-1/2 mt-base">
           <img
             src="../../assets/images/logo/logo.svg"
-            alt="vuesax-logo"
-          >
+            alt="vuesax-logo">
         </div>
         <div class="vx-col w-full md:w-1/2 text-right">
           <h1>Invoice</h1>
@@ -34,15 +33,13 @@
             <p class="flex items-center">
               <feather-icon
                 icon="MailIcon"
-                svg-classes="h-4 w-4"
-              ></feather-icon>
+                svg-classes="h-4 w-4"></feather-icon>
               <span class="ml-2">{{ recipientDetails.mailId }}</span>
             </p>
             <p class="flex items-center">
               <feather-icon
                 icon="PhoneIcon"
-                svg-classes="h-4 w-4"
-              ></feather-icon>
+                svg-classes="h-4 w-4"></feather-icon>
               <span class="ml-2">{{ recipientDetails.mobile }}</span>
             </p>
           </div>
@@ -58,15 +55,13 @@
             <p class="flex items-center justify-end">
               <feather-icon
                 icon="MailIcon"
-                svg-classes="h-4 w-4"
-              ></feather-icon>
+                svg-classes="h-4 w-4"></feather-icon>
               <span class="ml-2">{{ companyDetails.mailId }}</span>
             </p>
             <p class="flex items-center justify-end">
               <feather-icon
                 icon="PhoneIcon"
-                svg-classes="h-4 w-4"
-              ></feather-icon>
+                svg-classes="h-4 w-4"></feather-icon>
               <span class="ml-2">{{ companyDetails.mobile }}</span>
             </p>
           </div>
@@ -78,8 +73,7 @@
         <!-- INVOICE TASKS TABLE -->
         <vs-table
           :data="invoiceData.tasks"
-          hover-flat
-        >
+          hover-flat>
           <!-- HEADER -->
           <template slot="thead">
             <vs-th>TASK DESCRIPTION</vs-th>
@@ -92,8 +86,7 @@
           <template slot-scope="{data}">
             <vs-tr
               v-for="(tr, index) in data"
-              :key="index"
-            >
+              :key="index">
               <vs-td :data="data[index].task">
                 {{ data[index].task }}
               </vs-td>
@@ -114,8 +107,7 @@
         <vs-table
           :data="invoiceData"
           hover-flat
-          class="w-1/2 ml-auto mt-4"
-        >
+          class="w-1/2 ml-auto mt-4">
           <vs-tr>
             <vs-th>SUBTOTAL</vs-th>
             <vs-td>{{ invoiceData.subtotal }} USD</vs-td>

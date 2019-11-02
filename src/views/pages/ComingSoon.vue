@@ -12,8 +12,7 @@
           src="../../assets/images/pages/rocket.png"
           alt="coming-soon"
           class="mx-auto mb-2"
-          width="150"
-        >
+          width="150">
         <!-- <p>Thank you for checking out our app. We are under construction, we will be here soon with our new awesome app. </p> -->
         <div class="count-down">
           <countdown :time="new Date('03/09/2021 00:00:00').getTime() - new Date().getTime()">
@@ -46,8 +45,7 @@
             v-model="value1"
             type="email"
             label-placeholder="Email"
-            class="w-full mb-4"
-          />
+            class="w-full mb-4" />
           <vs-button class="w-full">
             Subscribe
           </vs-button>

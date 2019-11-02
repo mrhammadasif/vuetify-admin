@@ -4,23 +4,21 @@
     <div
       v-if="this.$slots.prepend"
       :class="prependClasses"
-      class="vx-input-group-prepend flex"
-    >
-      <slot name="prepend"/>
+      class="vx-input-group-prepend flex">
+      <slot name="prepend" />
     </div>
 
     <!-- SLOT: DEFAULT -->
     <div class="vx-input-group-default flex-grow">
-      <slot/>
+      <slot />
     </div>
 
     <!-- SLOT: APPEND -->
     <div
       v-if="this.$slots.append"
       :class="appendClasses"
-      class="vx-input-group-append flex"
-    >
-      <slot name="append"/>
+      class="vx-input-group-append flex">
+      <slot name="append" />
     </div>
   </div>
 </template>

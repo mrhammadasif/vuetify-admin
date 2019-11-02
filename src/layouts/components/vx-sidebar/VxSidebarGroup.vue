@@ -4,66 +4,55 @@
     :class="[{'vs-sidebar-group-open' : openItems}, {'vs-sidebar-group-active': open}, {'disabled-item pointer-events-none': group.isDisabled}]"
     class="vs-sidebar-group"
     @mouseover="mouseover"
-    @mouseout="mouseout"
-  >
+    @mouseout="mouseout">
     <div
       class="group-header w-full"
-      @click="clickGroup"
-    >
+      @click="clickGroup">
       <span class="flex items-center w-full">
         <feather-icon
           v-if="group.icon || (groupIndex > Math.floor(groupIndex))"
           :icon="group.icon || 'CircleIcon'"
-          :svg-classes="{ 'w-3 h-3' : groupIndex % 1 != 0 }"
-        />
+          :svg-classes="{ 'w-3 h-3' : groupIndex % 1 != 0 }" />
         <span
           v-show="!sidebarItemsMin"
-          class="truncate mr-3 select-none"
-        >{{ group.name }}</span>
+          class="truncate mr-3 select-none">{{ group.name }}</span>
         <vs-chip
           v-if="group.tag && !sidebarItemsMin"
           :color="group.tagColor"
-          class="ml-auto mr-4"
-        >{{ group.tag }}</vs-chip>
+          class="ml-auto mr-4">{{ group.tag }}</vs-chip>
       </span>
       <feather-icon
         v-show="!sidebarItemsMin"
         :class="[{'rotate90' : openItems}, 'feather-grp-header-arrow']"
         icon="ChevronRightIcon"
-        svg-classes="w-4 h-4"
-      />
+        svg-classes="w-4 h-4" />
       <span class="vs-sidebar--tooltip">{{ group.name }}</span>
     </div>
     <ul
       ref="items"
       :style="styleItems"
-      class="vs-sidebar-group-items"
-    >
+      class="vs-sidebar-group-items">
       <li
         v-for="(groupItem, index) in group.submenu"
-        :key="index"
-      >
+        :key="index">
         <vx-sidebar-group
           v-if="groupItem.submenu"
           :group="groupItem"
           :group-index="Number(`${groupIndex}.${index}`)"
           :open="isGroupActive(groupItem)"
-          :open-hover="openHover"
-        />
+          :open-hover="openHover" />
         <vx-sidebar-item
           v-else
           :index="groupIndex + '.' + index"
           :to="groupItem.url"
           :icon="itemIcon(groupIndex + '.' + index)"
           :target="groupItem.target"
-          icon-small
-        >
+          icon-small>
           <span class="truncate">{{ groupItem.name }}</span>
           <vs-chip
             v-if="groupItem.tag"
             :color="groupItem.tagColor"
-            class="ml-auto"
-          >
+            class="ml-auto">
             {{ groupItem.tag }}
           </vs-chip>
         </vx-sidebar-item>

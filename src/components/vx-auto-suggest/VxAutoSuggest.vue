@@ -15,8 +15,7 @@
         @keyup.down="increaseIndex"
         @keyup.enter="suggestionSelected"
         @focus="updateInputFocus"
-        @blur="updateInputFocus(false)"
-      />
+        @blur="updateInputFocus(false)" />
     </div>
     <ul
       ref="scrollContainer"
@@ -26,8 +25,7 @@
       @mouseenter="insideSuggestions = true"
       @mouseleave="insideSuggestions = false"
       @focus="updateInputFocus"
-      @blur="updateInputFocus(false)"
-    >
+      @blur="updateInputFocus(false)">
       <li
         v-for="(suggestion, index) in filteredData"
         ref="option"
@@ -35,22 +33,19 @@
         :class="{'vx-auto-suggest__current-selected': currentSelected == index, 'pointer-events-none': suggestion.index < 0}"
         class="auto-suggest__suggestion flex items-center justify-between py-3 cursor-pointer"
         @mouseenter="currentSelected = index"
-        @click="suggestionSelected"
-      >
+        @click="suggestionSelected">
         <div class="flex items-center">
           <feather-icon
             :icon="suggestion.labelIcon"
             svg-classes="h-5 w-5"
-            class="mr-4"
-          />
+            class="mr-4" />
           <span>{{ suggestion.label }}</span>
         </div>
         <feather-icon
           v-if="showAction"
           :icon="data.actionIcon"
           :svg-classes="[actionClasses(suggestion.highlightAction), 'h-5 w-5']"
-          @click.stop="actionClicked"
-        />
+          @click.stop="actionClicked" />
       </li>
     </ul>
   </div>

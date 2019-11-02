@@ -5,8 +5,7 @@
       <img
         src="../../assets/images/pages/404.png"
         alt="graphic-404"
-        class="mx-auto mb-4 max-w-full"
-      >
+        class="mx-auto mb-4 max-w-full">
       <h1 class="sm:mx-0 mx-4 mb-12 text-5xl d-theme-heading-color">
         404 - Page Not Found!
       </h1>
@@ -15,8 +14,7 @@
       </p>
       <vs-button
         size="large"
-        to="/"
-      >
+        to="/">
         Back to Home
       </vs-button>
     </div>

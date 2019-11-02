@@ -4,15 +4,13 @@
       <vx-card>
         <div
           slot="no-body"
-          class="full-page-bg-color"
-        >
+          class="full-page-bg-color">
           <div class="vx-row no-gutter">
             <div class="vx-col hidden sm:hidden md:hidden lg:block lg:w-1/2 mx-auto self-center">
               <img
                 src="@/assets/images/pages/register.jpg"
                 alt="register"
-                class="mx-auto"
-              >
+                class="mx-auto">
             </div>
             <div class="vx-col sm:w-full md:w-full lg:w-1/2 mx-auto self-center  d-theme-dark-bg">
               <div class="p-8">
@@ -30,8 +28,7 @@
                     label-placeholder="Username"
                     name="username"
                     placeholder="Username"
-                    class="w-full"
-                  />
+                    class="w-full" />
                   <span class="text-danger text-sm">{{ errors.first('username') }}</span>
 
                   <vs-input
@@ -42,8 +39,7 @@
                     type="email"
                     label-placeholder="Email"
                     placeholder="Email"
-                    class="w-full mt-6"
-                  />
+                    class="w-full mt-6" />
                   <span class="text-danger text-sm">{{ errors.first('email') }}</span>
 
                   <vs-input
@@ -55,8 +51,7 @@
                     name="password"
                     label-placeholder="Password"
                     placeholder="Password"
-                    class="w-full mt-6"
-                  />
+                    class="w-full mt-6" />
                   <span class="text-danger text-sm">{{ errors.first('password') }}</span>
 
                   <vs-input
@@ -68,28 +63,24 @@
                     name="confirm_password"
                     label-placeholder="Confirm Password"
                     placeholder="Confirm Password"
-                    class="w-full mt-6"
-                  />
+                    class="w-full mt-6" />
                   <span class="text-danger text-sm">{{ errors.first('confirm_password') }}</span>
 
                   <vs-checkbox
                     v-model="isTermsConditionAccepted"
-                    class="mt-6"
-                  >
+                    class="mt-6">
                     I accept the terms & conditions.
                   </vs-checkbox>
                   <vs-button
                     type="border"
                     to="/pages/login"
-                    class="mt-6"
-                  >
+                    class="mt-6">
                     Login
                   </vs-button>
                   <vs-button
                     :disabled="!validateForm"
                     class="float-right mt-6"
-                    @click="registerUser"
-                  >
+                    @click="registerUser">
                     Register
                   </vs-button>
                 </div>

@@ -4,8 +4,7 @@
       <img
         src="../../assets/images/pages/maintenance-2.png"
         alt="graphic-maintenance"
-        class="mx-auto mb-4"
-      >
+        class="mx-auto mb-4">
       <h1 class="sm:mx-0 mx-4 mb-6 text-5xl d-theme-heading-color">
         Under Maintenance!
       </h1>
@@ -14,8 +13,7 @@
       </p>
       <vs-button
         size="large"
-        to="/"
-      >
+        to="/">
         Back to Home
       </vs-button>
     </div>

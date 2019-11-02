@@ -2,43 +2,36 @@
 <template>
   <div
     :class="[{'vs-sidebar-item-active':activeLink}, {'disabled-item pointer-events-none': isDisabled}]"
-    class="vs-sidebar--item"
-  >
+    class="vs-sidebar--item">
     <router-link
       v-if="to"
       :to="to"
       :class="[{'router-link-active': activeLink}]"
       :target="target"
-      exact
-    >
+      exact>
       <vs-icon
         v-if="!featherIcon"
         :icon-pack="iconPack"
-        :icon="icon"
-      />
+        :icon="icon" />
       <feather-icon
         v-else
         :icon="icon"
-        :class="{'w-3 h-3': iconSmall}"
-      />
-      <slot/>
+        :class="{'w-3 h-3': iconSmall}" />
+      <slot />
     </router-link>
     <a
       v-else
       :target="target"
-      :href="href"
-    >
+      :href="href">
       <vs-icon
         v-if="!featherIcon"
         :icon-pack="iconPack"
-        :icon="icon"
-      />
+        :icon="icon" />
       <feather-icon
         v-else
         :icon="icon"
-        :class="{'w-3 h-3': iconSmall}"
-      />
-      <slot/>
+        :class="{'w-3 h-3': iconSmall}" />
+      <slot />
     </a>
   </div>
 </template>

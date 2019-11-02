@@ -9,7 +9,7 @@
       "error",
       2
     ],
-    "no-unused-vars": "warn",
+    "no-unused-vars": "off",
     "no-array-constructor": "error",
     "comma-dangle": "error",
     "computed-property-spacing": "error",
@@ -100,9 +100,14 @@
       "avoid-escape"
     ],
     "vue/script-indent": "error",
-    "vue/html-closing-bracket-spacing": "warning",
+    "vue/html-closing-bracket-spacing": "error",
+    "vue/html-closing-bracket-newline":["error", {
+      "singleline": "never",
+      "multiline": "never"
+    }],
     "vue/prop-name-casing": "error",
-    "vue/html-self-closing": "off"
+    "vue/html-self-closing": "off",
+    "vue/no-v-html": "off"
   },
   "extends": "plugin:vue/recommended"
 }
