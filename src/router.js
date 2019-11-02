@@ -19,47 +19,25 @@ export const routes = [
       // =============================================================================
       {
         path: "/",
-        name: "app-home",
-        component: () => import("./views/Home.vue")
+        name: "app-dashboard",
+        component: () => import("./views/Dashboard.vue")
       },
       {
-        path: "/services",
-        name: "app-services",
-        component: () => import("./views/Services.vue")
+        path: "/list",
+        name: "app-list",
+        component: () => import("./views/List.vue")
 
       },
       {
-        path: "/services/add",
-        name: "app-add-services",
-        component: () => import("./views/ServicesForm.vue?_t=1")
-
+        path: "/list/add",
+        name: "app-list-new",
+        component: () => import("./views/Form.vue")
       },
       {
-        path: "/services/detail/:serviceId",
-        name: "app-service-detail",
-        component: () => import("./views/ServicesForm.vue?_t=2"),
+        path: "/list/detail/:serviceId",
+        name: "app-list-edit",
+        component: () => import("./views/Form.vue?_t=2"),
         meta: {isDetailView: true}
-      },
-      {
-        path: "/users",
-        name: "app-users",
-        component: () => import("./views/Users.vue")
-      },
-      {
-        path: "/transactions",
-        name: "app-transactions",
-        component: () => import("./views/Transactions.vue")
-      },
-      {
-        path: "/users/add",
-        name: "add-user",
-        component: () => import("./views/UsersForm.vue")
-      },
-      {
-        path: "/proposals",
-        name: "app-proposals",
-        component: () => import("./views/Proposals.vue")
-
       }
 
     ]
@@ -115,19 +93,19 @@ const router = new Router({
 
 router.beforeEach((to, from, next) => {
   // you are not allowed to visit admin
-  if (to.path.includes("login") && store.state.token) {
-    next("/")
-    return
-  }
-  if (to.matched.find((route) => route.meta.isPublic)) {
-    next()
-  }
-  else if (!store.state.token) {
-    next("/login")
-  }
-  else {
-    next()
-  }
+  // if (to.path.includes("login") && store.state.token) {
+  //   next("/")
+  //   return
+  // }
+  // if (to.matched.find((route) => route.meta.isPublic)) {
+  //   next()
+  // }
+  // else if (!store.state.token) {
+  //   next("/login")
+  // }
+  // else {
+  next()
+  // }
 })
 
 router.afterEach(() => {

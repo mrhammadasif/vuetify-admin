@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <vs-card class="p-5">
       <div
         slot="header"
@@ -9,15 +8,15 @@
         <div class="flex">
           <vs-input
             v-model="searchText"
-            placeholder="Enter text to search..."
-          />
+            placeholder="Enter text to search..." />
           <vs-button
             icon="refresh"
             color="primary"
             type="filled"
             class="ml-2"
-            @click.stop="reloadData()"
-          >Refresh</vs-button>
+            @click.stop="reloadData()">
+            Refresh
+          </vs-button>
           <!-- <vs-button
             id="connections-step1"
             icon="link"
@@ -55,8 +54,7 @@
           <template slot-scope="{data}">
             <vs-tr
               v-for="tr in data"
-              :key="tr._id" >
-
+              :key="tr._id">
               <!-- <vs-td class="pl-8">
                 <img
                   :src="basePath + tr.name"
@@ -88,13 +86,12 @@
               </vx-tooltip>
               <vs-td>
                 <div class="flex justify-end">
-
                   <vs-button
                     :color="tr.isFav ? 'primary' : 'light'"
                     class="mr-2"
                     icon="star"
                     type="filled"
-                    @click="toggleFavorite(tr)"/>
+                    @click="toggleFavorite(tr)" />
 
                   <vs-button
                     class="mr-2"
@@ -105,8 +102,7 @@
                     type="filled"
                     icon="delete"
                     color="danger"
-                    @click="deleteRow(tr._id)"/>
-
+                    @click="deleteRow(tr._id)" />
                 </div>
               </vs-td>
               <!-- <vs-td :data="tr.statusDisplayName">
