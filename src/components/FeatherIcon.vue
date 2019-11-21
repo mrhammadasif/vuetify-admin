@@ -1,9 +1,19 @@
+<!-- =========================================================================================
+    File Name: FeatherIcon.vue
+    Description: Feather icon component. Creates feather icon based on 'icon' prop
+    Component Name: FeatherIcon
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+      Author: Pixinvent
+    Author URL: http://www.themeforest.net/user/pixinvent
+========================================================================================== -->
 
 <script>
 import * as icons from "vue-feather-icons"
 
 export default {
   name: "FeatherIcon",
+  functional: true,
   props: {
     icon: {
       type: String,
@@ -18,43 +28,31 @@ export default {
       default: ""
     },
     badge: {
-      type: Number,
-      default: 0
+      type: [
+        String,
+        Number,
+        Object
+      ],
+      default: null
     }
   },
-  methods: {
-    clickFeather (event) {
-      this.$emit("click", event)
-    },
-    mouseoverFeather (event) {
-      this.$emit("mouseover", event)
-    },
-    mouseoutFeather (event) {
-      this.$emit("mouseout", event)
-    }
-  },
-  render (h) {
-    const svg = h(icons[this.icon], {class: this.svgClasses})
+  render (h, {props, data}) {
+    // Add feather classes
+    data.staticClass ? data.staticClass = data.staticClass + " feather-icon select-none relative" : data.staticClass = "feather-icon select-none relative"
+
+    const svg = h(icons[props.icon], {class: props.svgClasses})
     const badgeEl = h("span", {
       class: "feather-icon-badge bg-primary text-white h-5 w-5 absolute rounded-full text-xs flex items-center justify-center",
       style: "top: -7px; right: -5px"
-    }, [this.badge])
-    const attr = {
-      class: ["feather-icon select-none relative"],
-      on: {
-        click: this.clickFeather,
-        mouseover: this.mouseoverFeather,
-        mouseout: this.mouseoutFeather
-      }
-    }
+    }, [props.badge])
     const children = [svg]
-    if (this.badge) {children.push(badgeEl)}
-    return h("span", attr, children)
+    if (props.badge) {children.push(badgeEl)}
+    return h("span", data, children)
   }
 }
 
 </script>
 
 <style lang="scss">
-@import "../assets/scss/vuesax/components/featherIcon.scss"
+@import "@/assets/scss/vuexy/components/featherIcon.scss"
 </style>

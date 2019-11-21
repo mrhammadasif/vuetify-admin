@@ -2,7 +2,6 @@
 <template>
   <div id="invoice-page">
     <vx-card>
-      <!-- INVOICE METADATA -->
       <div class="vx-row leading-loose p-base">
         <div class="vx-col w-full md:w-1/2 mt-base">
           <img
@@ -68,13 +67,10 @@
         </div>
       </div>
 
-      <!-- INVOICE CONTENT -->
       <div class="p-base">
-        <!-- INVOICE TASKS TABLE -->
         <vs-table
           :data="invoiceData.tasks"
           hover-flat>
-          <!-- HEADER -->
           <template slot="thead">
             <vs-th>TASK DESCRIPTION</vs-th>
             <vs-th>HOURS</vs-th>
@@ -82,7 +78,6 @@
             <vs-th>AMOUNT</vs-th>
           </template>
 
-          <!-- DATA -->
           <template slot-scope="{data}">
             <vs-tr
               v-for="(tr, index) in data"
@@ -103,7 +98,6 @@
           </template>
         </vs-table>
 
-        <!-- INVOICE SUMMARY TABLE -->
         <vs-table
           :data="invoiceData"
           hover-flat
@@ -123,7 +117,6 @@
         </vs-table>
       </div>
 
-      <!-- INVOICE FOOTER -->
       <div class="invoice__footer text-right p-base">
         <p class="mb-4">
           Transfer the amounts to the business amount below. Please include invoice number on your check.

@@ -112,7 +112,6 @@
           </template>
         </vs-table>
       </div>
-    <!-- <div slot="footer"></div> -->
     </vs-card>
   </div>
 </template>

@@ -1,10 +1,15 @@
+<!-- =========================================================================================
+    File Name: TheFooter.vue
+    Description: Footer component
+    Component Name: TheFooter
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+      Author: Pixinvent
+    Author URL: http://www.themeforest.net/user/pixinvent
+========================================================================================== -->
 
-<template>
-  <footer
-    :class="classes"
-    class="the-footer flex-wrap justify-between">
-    <span>COPYRIGHT @ {{ new Date().getFullYear() }}, All rights Reserved</span>
-  </footer>
+<template functional>
+  <div></div>
 </template>
 
 <script>

@@ -2,8 +2,9 @@
   <div
     ref="convstooltip"
     class="con-vs-tooltip"
-    @mouseout="mouseoutx"
-    @mouseover="mouseoverx">
+    @mouseleave="mouseleavex"
+    @mouseenter="mouseenterx"
+    @mouseup="destroy">
     <transition name="tooltip-fade">
       <div
         v-show="active"
@@ -17,7 +18,7 @@
         {{ text }}
       </div>
     </transition>
-    <slot />
+    <slot></slot>
   </div>
 </template>
 <script>
@@ -75,14 +76,14 @@ export default {
     }
   },
   methods: {
-    mouseoverx (){
+    mouseenterx (){
       this.active = true
       this.$nextTick(() => {
         utils.insertBody(this.$refs.vstooltip)
         this.changePosition(this.$refs.convstooltip, this.$refs.vstooltip)
       })
     },
-    mouseoutx (){
+    mouseleavex (){
       this.active = false
     },
     changePosition (elxEvent, tooltip){
@@ -120,7 +121,14 @@ export default {
         top: `${topx}px`,
         width: `${widthx}px`
       }
-
+    },
+    destroy () {
+      this.active = false
+      this.$nextTick(() => {
+        if (this.active) {
+          utils.removeBody(this.$refs.vstooltip)
+        }
+      })
     }
   }
 }

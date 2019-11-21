@@ -5,6 +5,9 @@
   display: block;
   position: absolute;
 }
+.theme-dark #loading-bg {
+  background: #222;
+}
 .loading-logo{
   position: absolute;
   left: calc(50% - 45px);

@@ -1,21 +1,42 @@
+
+import navbarSearchAndPinList from "@/layouts/components/navbar/navbarSearchAndPinList"
 import themeConfig from "@/../themeConfig.js"
+import colors from "@/../themeConfig.js"
+
+// /////////////////////////////////////////////
+// Variables
+// /////////////////////////////////////////////
+
+const userDefaults = {
+  uid: 0,          // From Auth
+  displayName: "John Doe", // From Auth
+  about: "Dessert chocolate cake lemon drops jujubes. Biscuit cupcake ice cream bear claw brownie brownie marshmallow.",
+  photoURL: "", // From Auth
+  status: "online",
+  userRole: "admin"
+}
+
+// /////////////////////////////////////////////
+// State
+// /////////////////////////////////////////////
 
 const state = {
-  isSidebarActive: true,
-  breakpoint: null,
-  sidebarWidth: "default",
-  reduceButton: themeConfig.sidebarCollapsed,
+  AppActiveUser: userDefaults,
   bodyOverlay: false,
-  sidebarItemsMin: false,
+  isVerticalNavMenuActive: true,
+  mainLayoutType: themeConfig.mainLayoutType || "vertical",
+  navbarSearchAndPinList: navbarSearchAndPinList,
+  reduceButton: themeConfig.sidebarCollapsed,
+  verticalNavMenuWidth: "default",
+  verticalNavMenuItemsMin: false,
+  scrollY: 0,
+  starredPages: navbarSearchAndPinList.pages.data.filter((page) => page.is_bookmarked),
   theme: themeConfig.theme || "light",
-  userRole: null,
+  themePrimaryColor: colors.primary,
+
   // Can be used to get current window with
-  // Note: Above breakpoint state is for internal use of sidebar component
-  windowWidth: null,
-  // username: "",
-  // email: "",
-  // photoUrl: "",
-  token: sessionStorage.getItem("userToken")
+  // Note: Above breakpoint state is for internal use of sidebar & navbar component
+  windowWidth: null
 }
 
 export default state

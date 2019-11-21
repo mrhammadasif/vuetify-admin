@@ -1,24 +1,23 @@
-<template>
-  <div class="vx-input-group flex">
-    <!-- SLOT: PREPEND -->
+<template functional>
+  <div
+    :class="data.staticClass"
+    class="vx-input-group flex">
     <div
-      v-if="this.$slots.prepend"
-      :class="prependClasses"
+      v-if="slots().prepend"
+      :class="props.prependClasses"
       class="vx-input-group-prepend flex">
-      <slot name="prepend" />
+      <slot name="prepend"></slot>
     </div>
 
-    <!-- SLOT: DEFAULT -->
     <div class="vx-input-group-default flex-grow">
-      <slot />
+      <slot></slot>
     </div>
 
-    <!-- SLOT: APPEND -->
     <div
-      v-if="this.$slots.append"
-      :class="appendClasses"
+      v-if="slots().append"
+      :class="props.appendClasses"
       class="vx-input-group-append flex">
-      <slot name="append" />
+      <slot name="append"></slot>
     </div>
   </div>
 </template>
@@ -29,16 +28,16 @@ export default {
   props: {
     prependClasses: {
       type: String,
-      default: ""
+      default: null
     },
     appendClasses: {
       type: String,
-      default: ""
+      default: null
     }
   }
 }
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/vuesax/components/vxInputGroup.scss";
+@import "@/assets/scss/vuexy/components/vxInputGroup.scss";
 </style>

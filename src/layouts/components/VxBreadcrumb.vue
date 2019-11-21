@@ -1,6 +1,17 @@
+<!-- =========================================================================================
+    File Name: VxBreadcrumb.vue
+    Description: Breadcrumb component
+    Component Name: VxBreadcrumb
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+      Author: Pixinvent
+    Author URL: http://www.themeforest.net/user/pixinvent
+========================================================================================== -->
 
-<template>
-  <div class="vx-breadcrumb">
+<template functional>
+  <div
+    :class="data.staticClass"
+    class="vx-breadcrumb">
     <ul class="flex flex-wrap items-center">
       <li class="inline-flex items-end">
         <router-link to="/">
@@ -9,11 +20,11 @@
             svg-classes="h-5 w-5 mb-1 stroke-current text-primary" />
         </router-link>
         <span class="breadcrumb-separator mx-2"><feather-icon
-          icon="ChevronsRightIcon"
+          :icon="props.isRTL ? 'ChevronsLeftIcon' : 'ChevronsRightIcon'"
           svg-classes="w-4 h-4" /></span>
       </li>
       <li
-        v-for="(link, index) in $route.meta.breadcrumb.slice(1,-1)"
+        v-for="(link, index) in props.route.meta.breadcrumb.slice(1,-1)"
         :key="index"
         class="inline-flex items-center">
         <router-link
@@ -25,13 +36,13 @@
           v-else
           class="text-primary cursor-default">{{ link.title }}</span>
         <span class="breadcrumb-separator mx-2 flex items-start"><feather-icon
-          icon="ChevronsRightIcon"
+          :icon="props.isRTL ? 'ChevronsLeftIcon' : 'ChevronsRightIcon'"
           svg-classes="w-4 h-4" /></span>
       </li>
       <li class="inline-flex">
         <span
-          v-if="$route.meta.breadcrumb.slice(-1)[0].active"
-          class="cursor-default">{{ $route.meta.breadcrumb.slice(-1)[0].title }}</span>
+          v-if="props.route.meta.breadcrumb.slice(-1)[0].active"
+          class="cursor-default">{{ props.route.meta.breadcrumb.slice(-1)[0].title }}</span>
       </li>
     </ul>
   </div>

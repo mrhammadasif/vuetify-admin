@@ -1,29 +1,45 @@
 
-// import axios from "axios"
-// import VueApp from "vue"
-
 const actions = {
 
-  // ////////////////////////////////////////////
-  // SIDEBAR & UI UX
-  // ////////////////////////////////////////////
-  toggleDarkMode ({commit}, payload) {
-    commit("TOGGLE_DARK_MODE", payload)
+  // /////////////////////////////////////////////
+  // COMPONENTS
+  // /////////////////////////////////////////////
+
+  // Vertical NavMenu
+  updateVerticalNavMenuWidth ({commit}, width) {
+    commit("UPDATE_VERTICAL_NAV_MENU_WIDTH", width)
   },
-  updateSidebarWidth ({commit}, width) {
-    commit("UPDATE_SIDEBAR_WIDTH", width)
+
+  // VxAutoSuggest
+  updateStarredPage ({commit}, payload) {
+    commit("UPDATE_STARRED_PAGE", payload)
   },
-  updateWindowWidth ({commit}, width) {
-    commit("UPDATE_WINDOW_WIDTH", width)
+
+  // The Navbar
+  arrangeStarredPagesLimited ({commit}, list) {
+    commit("ARRANGE_STARRED_PAGES_LIMITED", list)
   },
-  loginUser ({commit}, token) {
-    sessionStorage.setItem("userToken", token)
-    commit("SET_TOKEN", token)
+  arrangeStarredPagesMore ({commit}, list) {
+    commit("ARRANGE_STARRED_PAGES_MORE", list)
   },
-  logoutUser ({commit}) {
-    sessionStorage.clear()
-    commit("SET_TOKEN", null)
-    window.location = "/"
+
+  // /////////////////////////////////////////////
+  // UI
+  // /////////////////////////////////////////////
+
+  toggleContentOverlay ({commit}) {
+    commit("TOGGLE_CONTENT_OVERLAY")
+  },
+  updateTheme ({commit}, val) {
+    commit("UPDATE_THEME", val)
+  },
+
+  // /////////////////////////////////////////////
+  // User/Account
+  // /////////////////////////////////////////////
+
+  updateUserInfo ({commit}, payload) {
+    commit("UPDATE_USER_INFO", payload)
   }
 }
 

@@ -62,6 +62,8 @@ VueApp.use(VeeValidate)
 
 import myUtils from "./utils"
 VueApp.use(myUtils)
+import config from "@/app/config"
+VueApp.prototype.$config = config
 
 new VueApp({
   router,

@@ -11,7 +11,6 @@
             <div class="vx-col sm:w-full d-theme-dark-bg">
               <div class="p-8">
                 <div class="vx-card__title mb-8">
-                  <!-- <h4 class="mb-4">Login</h4> -->
                   <div class="flex justify-center items-center mb-4">
                     <img
                       src="/logo.png"

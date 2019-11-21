@@ -1,20 +1,23 @@
+@import "vuexy/variables";
 
+@import "vuexy/layout";
+@import "vuexy/typography";
+@import "vuexy/misc";
+@import "vuexy/extraComponents";
+@import "vuexy/themes";
+@import "vuexy/transitions";
 
-@import "vuesax/variables";
-
-@import "vuesax/layout";
-@import "vuesax/typography";
-@import "vuesax/misc";
-@import "vuesax/extraComponents";
-@import "vuesax/themes";
-@import "vuesax/routerAnimations";
-@import "vuesax/transitions";
-
-@import "vuesax/customClasses";
+@import "vuexy/customClasses";
 
 // Vuesax fixes and enhancments
-@import "vuesax/fixesVuesax";
+@import "vuexy/fixesVuesax";
 
 // Tailwind Fixes
-@import "vuesax/tailwindFix";
-@import "./ew-fixes.scss";
+@import "vuexy/tailwindFix";
+
+// rtl
+@import "vuexy/rtl";
+
+
+// custom themes
+@import "../../app/scss/app.scss";

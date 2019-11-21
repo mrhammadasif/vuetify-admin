@@ -9,7 +9,7 @@
       <h1 class="sm:mx-0 mx-4 sm:mb-12 mb-8 text-5xl d-theme-heading-color">
         You are not authorized!
       </h1>
-      <!-- to="/login" -->
+
       <vs-button
         size="large"
         @click="goToLogin">

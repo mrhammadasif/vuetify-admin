@@ -1,3 +1,12 @@
+<!-- =========================================================================================
+    File Name: VxCard.vue
+    Description: Card Component
+    Component Name: VxCard
+    ----------------------------------------------------------------------------------------
+    Item Name: Vuexy - Vuejs, HTML & Laravel Admin Dashboard Template
+      Author: Pixinvent
+    Author URL: http://www.themeforest.net/user/pixinvent
+========================================================================================== -->
 
 <template>
   <div
@@ -9,11 +18,11 @@
       {'card-border': cardBorder},
       cardClasses ]"
     :style="cardStyles"
-    class="vx-card">
+    class="vx-card"
+    v-on="$listeners">
     <div
       v-if="hasHeader"
       class="vx-card__header">
-      <!-- card title -->
       <div class="vx-card__title">
         <h4
           v-if="this.$props.title"
@@ -29,7 +38,6 @@
         </h6>
       </div>
 
-      <!-- card actions -->
       <div
         v-if="hasAction"
         class="vx-card__actions">
@@ -60,7 +68,7 @@
             <feather-icon
               :class="{'border border-solid border-primary border-t-0 border-r-0 border-l-0': showCode}"
               icon="CodeIcon"
-              @click="toggleCode" />
+              @click="toggleCode"></feather-icon>
           </div>
         </slot>
       </div>
@@ -71,23 +79,20 @@
       :class="[{collapsed: isContentCollapsed}, {'overflow-hidden': tempHidden}]"
       :style="StyleItems"
       class="vx-card__collapsible-content vs-con-loading__container">
-      <!-- content with no body(no padding) -->
-      <slot name="no-body" />
+      <slot name="no-body"></slot>
 
-      <!-- content inside body(with padding) -->
       <div
         v-if="this.$slots.default"
         class="vx-card__body">
-        <slot />
+        <slot></slot>
       </div>
 
-      <!-- content with no body(no padding) -->
-      <slot name="no-body-bottom" />
+      <slot name="no-body-bottom"></slot>
 
       <div
         v-if="this.$slots.footer"
         class="vx-card__footer">
-        <slot name="footer" />
+        <slot name="footer"></slot>
       </div>
     </div>
 
@@ -98,8 +103,10 @@
       :class="{collapsed: !showCode}"
       class="vx-card__code-container">
       <div class="code-content">
-        <prism :language="codeLanguage">
-          <slot name="codeContainer" />
+        <prism
+          :key="$vs.rtl"
+          :language="codeLanguage">
+          <slot name="codeContainer"></slot>
         </prism>
       </div>
     </div>
@@ -114,13 +121,14 @@ export default{
   name: "VxCard",
   components: {Prism},
   props: {
+
     title: {
       type: String,
-      default: ""
+      default: null
     },
     subtitle: {
       type: String,
-      default: ""
+      default: null
     },
     actionButtons: {
       type: Boolean,
@@ -273,13 +281,13 @@ export default{
         this.maxHeight = `${scrollHeight}px`
         setTimeout(() => {
           this.maxHeight = "none"
-          this.$refs.content.style.overflow = "hidden"
+          this.$refs.content.style.overflow = null
         }, 300)
       } else {
         this.maxHeight = `${scrollHeight}px`
         setTimeout(() => {
           this.maxHeight = "1.5rem"
-          this.$refs.content.style.overflow = "hidden"
+          this.$refs.content.style.overflow = null
         }, 50)
       }
       this.isContentCollapsed = !this.isContentCollapsed
@@ -331,5 +339,5 @@ export default{
 </script>
 
 <style lang="scss">
-@import "@/assets/scss/vuesax/components/vxCard.scss";
+@import "@/assets/scss/vuexy/components/vxCard.scss"
 </style>
