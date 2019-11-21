@@ -12,7 +12,11 @@
               <div class="p-8">
                 <div class="vx-card__title mb-8">
                   <!-- <h4 class="mb-4">Login</h4> -->
-                  <MainLogo />
+                  <div class="flex justify-center items-center mb-4">
+                    <img
+                      src="/logo.png"
+                      alt="">
+                  </div>
                   <p>Welcome back, please login to your account.</p>
                 </div>
                 <vs-input
@@ -63,15 +67,13 @@
 
 <script>
 import axios from "axios"
-import MainLogo from "@/assets/main-logo.svg"
 import {get} from "lodash"
 
 export default {
-  components: {MainLogo},
   data () {
     return {
-      email: "admin@nitroxis.com",
-      password: "12345678"
+      email: "",
+      password: ""
     }
   },
   computed: {
@@ -80,6 +82,10 @@ export default {
     }
   },
   methods: {
+    demoCredentials (){
+      this.email = "admin@nitroxis.com"
+      this.password = "12345678"
+    },
     login () {
       this.$router.push("/")
       return

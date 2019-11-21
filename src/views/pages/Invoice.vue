@@ -6,7 +6,7 @@
       <div class="vx-row leading-loose p-base">
         <div class="vx-col w-full md:w-1/2 mt-base">
           <img
-            src="../../assets/images/logo/logo.svg"
+            src="/logo.png"
             alt="vuesax-logo">
         </div>
         <div class="vx-col w-full md:w-1/2 text-right">

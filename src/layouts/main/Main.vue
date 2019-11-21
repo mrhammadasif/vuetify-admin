@@ -7,8 +7,16 @@
     <vx-sidebar
       id="sidebar-id"
       :sidebar-items="sidebarItems"
+      sidebar-header-class="bg-white mb-2"
       title="Admin Panel"
-      parent=".layout--main" />
+      parent=".layout--main">
+      <template v-slot:header>
+        <img src="/logo.png" />
+        <h1 class="mx-2">
+          Love
+        </h1>
+      </template>
+    </vx-sidebar>
 
     <div
       id="content-area"

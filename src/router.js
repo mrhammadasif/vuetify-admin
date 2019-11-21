@@ -7,10 +7,12 @@ import store from "@/store/store"
 Vue.use(Router)
 
 export const routes = [
+
   {
     // =============================================================================
     // MAIN LAYOUT ROUTES
     // =============================================================================
+
     path: "",
     component: () => import("./layouts/main/Main.vue"),
     children: [
