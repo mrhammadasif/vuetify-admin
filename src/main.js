@@ -3,7 +3,7 @@ import VueApp from "vue"
 import App from "./App.vue"
 
 // Axios – and load axios defaults config keys
-import loadAxiosConfig from "@/plugins/axios.config.js"
+import loadAxiosConfig from "@/app/axios-config.js"
 loadAxiosConfig()
 
 // Vuesax Component Framework
@@ -33,7 +33,7 @@ import router from "./router"
 import store from "./store/store"
 
 // Vuesax Admin Filters
-import "./filters/filters"
+import "./app/filters"
 
 // Vuejs - Vue wrapper for hammerjs
 import {VueHammer} from "vue2-hammer"
