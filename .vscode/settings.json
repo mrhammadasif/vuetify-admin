@@ -3,20 +3,27 @@
   "vetur.format.defaultFormatter.html": "prettier",
   "javascript.format.insertSpaceBeforeFunctionParenthesis": true,
   "editor.formatOnSave": false,
-  "eslint.autoFixOnSave": true,
-  "path-intellisense.mappings": {
-    "@": "src/"
-  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
-    {
-      "language": "vue",
-      "autoFix": true
-    }
+    "vue"
   ],
   "files.exclude": {
-    "dist": true,
+    "*.csproj": true,
+    "*.cs": true,
+    "PackageRoot": true,
+    "wwwroot": true,
     "node_modules": true,
+    "Properties": true,
+    "bin": true,
+    "obj": true
+  },
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "editor.quickSuggestions": {
+    "other": true,
+    "comments": false,
+    "strings": true
   }
 }

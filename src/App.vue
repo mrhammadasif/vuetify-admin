@@ -1,77 +1,70 @@
 <template>
   <div
-    id="app"
-    :class="vueAppClasses">
-    <router-view @setAppClasses="setAppClasses" />
+    v-show="$store.state.routeLoaded"
+    id="app">
+    <v-app>
+      <SideNav
+        v-if="showSidenav"
+        dark
+        :drawer.sync="drawer"
+        :full.sync="full"
+        @logout="logout" />
+
+      <TopBar
+        v-if="showTopnav"
+        @navBtnClick="drawer = !drawer" />
+
+      <v-content clipped>
+        <v-container fluid>
+          <router-view :key="$route.fullPath" />
+        </v-container>
+      </v-content>
+    </v-app>
   </div>
 </template>
 
 <script>
-import themeConfig from "@/../themeConfig.js"
-import myApp from "@/app/app"
-
+import SideNav from "@/partials/Sidenav.vue"
+import TopBar from "@/partials/TopBar.vue"
 export default {
-  mixins: [myApp],
-  data () {
-    return {vueAppClasses: []}
+  components: {
+    SideNav,
+    TopBar
   },
-  watch: {
-    "$store.state.theme" (val) {
-      this.toggleClassInBody(val)
-    },
-    "$vs.rtl" (val) {
-      document.documentElement.setAttribute("dir", val ? "rtl" : "ltr")
+  data: function () {
+    return {
+      showSidenav: true,
+      showTopnav: true,
+      drawer: true,
+      full: true
     }
   },
-  mounted () {
-    this.toggleClassInBody(themeConfig.theme)
-    this.$store.commit("UPDATE_WINDOW_WIDTH", window.innerWidth)
-
-    const vh = window.innerHeight * 0.01
-    // Then we set the value in the --vh custom property to the root of the document
-    document.documentElement.style.setProperty("--vh", `${vh}px`)
-  },
-  created () {
-
-    const dir = this.$vs.rtl ? "rtl" : "ltr"
-    document.documentElement.setAttribute("dir", dir)
-
-    window.addEventListener("resize", this.handleWindowResize)
-    window.addEventListener("scroll", this.handleScroll)
-
-  },
-  destroyed () {
-    window.removeEventListener("resize", this.handleWindowResize)
-    window.removeEventListener("scroll", this.handleScroll)
+  watch: {
+    "$route.meta.layout" (v) {
+      switch (v) {
+      case "full":
+        this.showSidenav = false
+        this.showTopnav = false
+        break
+      case "topnav":
+        this.showSidenav = true
+        this.showTopnav = true
+        this.full = false
+        this.drawer = false
+        break
+      default:
+        this.full = true
+        this.drawer = true
+        this.showSidenav = true
+        this.showTopnav = true
+        break
+      }
+    }
   },
   methods: {
-    toggleClassInBody (className) {
-      if (className == "dark") {
-        if (document.body.className.match("theme-semi-dark")) {document.body.classList.remove("theme-semi-dark")}
-        document.body.classList.add("theme-dark")
-      }
-      else if (className == "semi-dark") {
-        if (document.body.className.match("theme-dark")) {document.body.classList.remove("theme-dark")}
-        document.body.classList.add("theme-semi-dark")
-      }
-      else {
-        if (document.body.className.match("theme-dark"))      {document.body.classList.remove("theme-dark")}
-        if (document.body.className.match("theme-semi-dark")) {document.body.classList.remove("theme-semi-dark")}
-      }
-    },
-    setAppClasses (classesStr) {
-      this.vueAppClasses.push(classesStr)
-    },
-    handleWindowResize () {
-      this.$store.commit("UPDATE_WINDOW_WIDTH", window.innerWidth)
-
-      // Set --vh property
-      document.documentElement.style.setProperty("--vh", `${window.innerHeight * 0.01}px`)
-    },
-    handleScroll () {
-      this.$store.commit("UPDATE_WINDOW_SCROLL_Y", window.scrollY)
+    logout () {
+      this.$router.push("/logout")
     }
   }
 }
-
 </script>

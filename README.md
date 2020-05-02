@@ -1,26 +1,28 @@
-# modern
+# admin-vuetify
 
-## Project setup
-```
-npm install
-```
+## Install These Recommended plugins in VSCODE
+
+- vuetifyjs.vuetify-vscode
+- denifer.mdi-vuetify-intellisense
+- incleaf.vuetypes-snippets
+
 
 ### Compiles and hot-reloads for development
 ```
-npm run serve
+yarn serve
 ```
 
 ### Compiles and minifies for production
 ```
-npm run build
+yarn build
 ```
 
-### Run your tests
+### Run your unit tests
 ```
-npm run test
+yarn test:unit
 ```
 
 ### Lints and fixes files
 ```
-npm run lint
+yarn lint
 ```

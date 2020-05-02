@@ -1,72 +1,32 @@
-
-import VueApp from "vue"
+import Vue from "vue"
 import App from "./App.vue"
-
-// Axios – and load axios defaults config keys
-import loadAxiosConfig from "@/app/axios-config.js"
-loadAxiosConfig()
-
-// Vuesax Component Framework
-import Vuesax from "vuesax"
-import "material-icons/iconfont/material-icons.css" //Material Icons
-import "vuesax/dist/vuesax.css" // Vuesax
-VueApp.use(Vuesax)
-
-// App.hammad
-
-// Theme Configurations
-import "../themeConfig.js"
-
-// Globally Registered Components
-import "./globalComponents.js"
-
-// Styles: SCSS
-import "./assets/scss/main.scss"
-
-// Tailwind
-import "@/assets/css/main.css"
-
-// Vue Router
 import router from "./router"
+import store from "./store"
+import vuetify from "./plugins/vuetify"
+import "roboto-fontface/css/roboto/roboto-fontface.css"
+import "@mdi/font/css/materialdesignicons.css"
 
-// Vuex Store
-import store from "./store/store"
+import validationRules from "./plugins/validation-rules"
+Vue.use(validationRules)
 
-// Vuesax Admin Filters
-import "./app/filters"
+import vuetifyToastEngine from "./plugins/toast/toast"
+Vue.use(vuetifyToastEngine)
 
-// Vuejs - Vue wrapper for hammerjs
-import {VueHammer} from "vue2-hammer"
-VueApp.use(VueHammer)
-
-import VueTour from "vue-tour"
-VueApp.use(VueTour)
-require("vue-tour/dist/vue-tour.css")
-
-// PrismJS
-import "prismjs"
-import "prismjs/themes/prism-tomorrow.css"
-
-// Feather font icon
-require("./assets/css/iconfont.css")
-
-import SequentialEntrance from "vue-sequential-entrance"
-import "vue-sequential-entrance/vue-sequential-entrance.css"
-VueApp.use(SequentialEntrance)
-
-VueApp.config.productionTip = false
-
-// for forms validation
-import VeeValidate from "vee-validate"
-VueApp.use(VeeValidate)
-
-import myUtils from "./utils"
-VueApp.use(myUtils)
-import config from "@/app/config"
-VueApp.prototype.$config = config
-
-new VueApp({
-  router,
-  store,
-  render: (h) => h(App)
-}).$mount("#app")
+Vue.config.productionTip = false
+fetch("./" + process.env.BASE_URL + "/config.json")
+  .then((data) => {
+    return data.json()
+  })
+  .then((config) => {
+    Vue.prototype.$config = config
+    new Vue({
+      router,
+      store,
+      vuetify,
+      render: (h) => h(App)
+    }).$mount("#app")
+  })
+  .catch((e) => {
+    document.write("Unable to load config! Contact Webmaster")
+    console.error(e)
+  })

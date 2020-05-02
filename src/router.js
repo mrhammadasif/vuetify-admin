@@ -1,121 +1,62 @@
-
 import Vue from "vue"
-import Router from "vue-router"
+import VueRouter from "vue-router"
+import store from "./store/index"
+Vue.use(VueRouter)
 
-import store from "@/store/store"
-
-Vue.use(Router)
-
-export const routes = [
+const routes = [
 
   {
-    // =============================================================================
-    // MAIN LAYOUT ROUTES
-    // =============================================================================
-
-    path: "",
-    component: () => import("./layouts/main/Main.vue"),
-    children: [
-      // =============================================================================
-      // Theme Routes
-      // =============================================================================
-      {
-        path: "/",
-        name: "app-dashboard",
-        component: () => import("./views/Dashboard.vue")
-      },
-      {
-        path: "/list",
-        name: "app-list",
-        component: () => import("./views/List.vue")
-
-      },
-      {
-        path: "/list/add",
-        name: "app-list-new",
-        component: () => import("./views/Form.vue")
-      },
-      {
-        path: "/list/detail/:serviceId",
-        name: "app-list-edit",
-        component: () => import("./views/Form.vue?_t=2"),
-        meta: {isDetailView: true}
-      }
-
-    ]
+    path: "/",
+    name: "page-login",
+    component: () => import("./views/Login.vue"),
+    meta: {
+      layout: "full"
+    }
   },
-  // =============================================================================
-  // FULL PAGE LAYOUTS
-  // =============================================================================
   {
-    path: "",
-    component: () => import("@/layouts/full-page/FullPage.vue"),
-    children: [
-      // =============================================================================
-      // PAGES
-      // =============================================================================
-      {
-        path: "/not-found",
-        name: "app-404",
-        component: () => import("@/views/pages/Error404.vue"),
-        meta: {isPublic: true}
-      },
-      {
-        path: "/login",
-        name: "app-login",
-        component: () => import("./views/pages/Login.vue"),
-        meta: {isPublic: true}
-      },
-
-      {
-        path: "/not-authorized",
-        name: "page-not-authorized",
-        component: () => import("@/views/pages/NotAuthorized.vue"),
-        meta: {isPublic: true}
-      }
-    ]
+    path: "/dashboard",
+    name: "page-dashboard",
+    component: () => import("./views/Home.vue")
   },
-  // Redirect to 404 page, if no match found
+  {
+    path: "/topnav",
+    name: "page-topnav",
+    component: () => import("./views/Home.vue"),
+    meta: {
+      layout: "topnav"
+    }
+  },
+  {
+    path: "/full",
+    name: "page-full",
+    component: () => import("./views/Home.vue"),
+    meta: {
+      layout: "full"
+    }
+  },
+  {
+    path: "/404",
+    name: "page-not-found",
+    component: () => import("./views/404.vue"),
+    meta: {
+      layout: "full"
+    }
+  },
   {
     path: "*",
-    redirect: "/not-found"
+    name: "catch-all",
+    redirect: "/404"
   }
 ]
 
-const router = new Router({
+const router = new VueRouter({
   mode: "history",
-  scrollBehavior () {
-    return {
-      x: 0,
-      y: 0
-    }
-  },
+  base: process.env.BASE_URL,
   routes
 })
 
-router.beforeEach((to, from, next) => {
-  // you are not allowed to visit admin
-  // if (to.path.includes("login") && store.state.token) {
-  //   next("/")
-  //   return
-  // }
-  // if (to.matched.find((route) => route.meta.isPublic)) {
-  //   next()
-  // }
-  // else if (!store.state.token) {
-  //   next("/login")
-  // }
-  // else {
-  next()
-  // }
-})
-
-router.afterEach(() => {
-  // Remove initial loading
-  const appLoading = document.getElementById("loading-bg")
-  if (appLoading) {
-    appLoading.style.display = "none"
-  }
+router.afterEach((from, to) => {
+  store.state.routeLoaded = true
 })
 
 export default router
