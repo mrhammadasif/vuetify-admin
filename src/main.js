@@ -12,10 +12,6 @@ Vue.use(validationRules)
 import vuetifyToastEngine from "./plugins/toast/toast"
 Vue.use(vuetifyToastEngine)
 
-// Vuejs - Vue wrapper for hammerjs
-import { VueHammer } from "vue2-hammer"
-VueApp.use(VueHammer)
-
 import * as $lodash from "lodash"
 
 import loadAxiosPlugin from "axios"

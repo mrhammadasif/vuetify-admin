@@ -1,27 +1,22 @@
 # admin-vuetify
 
-## Install These Recommended plugins in VSCODE
+Admin Dashboard by @mrhammadasif based on vue@2.6+ and vuetify@2+
 
-- vuetifyjs.vuetify-vscode
-- incleaf.vuetypes-snippets
+## Recommended plugins in VSCODE
 
+- ext install `octref.vetur`
+- ext install `vuetifyjs.vuetify-vscode`
+- ext install `incleaf.vuetypes-snippets`
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
+## Features of this Templates
 
-### Compiles and minifies for production
-```
-yarn build
-```
+- ready-made templates for starting with admin
 
-### Run your unit tests
-```
-yarn test:unit
-```
+### TODOS
 
-### Lints and fixes files
-```
-yarn lint
-```
+- Progress Bar Support
+- Few More Templates (like, login, locked session)
+- Quick Tour
+- Intro Popup
+- Bread Crumbs
+- Shift whole base to Vue 3 (depends on Vue 3 release plan)
