@@ -12,6 +12,14 @@ Vue.use(validationRules)
 import vuetifyToastEngine from "./plugins/toast/toast"
 Vue.use(vuetifyToastEngine)
 
+// Vuejs - Vue wrapper for hammerjs
+import { VueHammer } from "vue2-hammer"
+VueApp.use(VueHammer)
+
+import * as $lodash from "lodash"
+
+import loadAxiosPlugin from "axios"
+
 Vue.config.productionTip = false
 fetch("./" + process.env.BASE_URL + "/config.json")
   .then((data) => {
@@ -19,6 +27,8 @@ fetch("./" + process.env.BASE_URL + "/config.json")
   })
   .then((config) => {
     Vue.prototype.$config = config
+    Vue.prototype.$lodash = $lodash
+    loadAxiosPlugin(config)
     new Vue({
       router,
       store,

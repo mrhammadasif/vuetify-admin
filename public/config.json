@@ -1,3 +1,4 @@
 {
-  "APP_TITLE": "Nitroxis Dashboard"
+  "APP_TITLE": "Nitroxis Dashboard",
+  "API_BASE_URL": "https://api.nitroxis.com"
 }
