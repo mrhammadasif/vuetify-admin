@@ -3,7 +3,6 @@
 ## Install These Recommended plugins in VSCODE
 
 - vuetifyjs.vuetify-vscode
-- denifer.mdi-vuetify-intellisense
 - incleaf.vuetypes-snippets
 
 
