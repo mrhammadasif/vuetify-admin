@@ -17,6 +17,7 @@
       <v-content clipped>
         <v-container fluid>
           <router-view :key="$route.fullPath" />
+          <my-toast />
         </v-container>
       </v-content>
     </v-app>
@@ -26,9 +27,11 @@
 <script>
 import SideNav from "@/partials/Sidenav.vue"
 import TopBar from "@/partials/TopBar.vue"
+import MyToast from "@/plugins/toast/Toast.vue"
 export default {
   components: {
     SideNav,
+    MyToast,
     TopBar
   },
   data: function () {
