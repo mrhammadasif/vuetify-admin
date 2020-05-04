@@ -1,5 +1,6 @@
 export default {
   routeLoaded: false,
+  notifications: [],
   sidenavItems: [
     {
       title: "Dashboard",
