@@ -1,86 +1,95 @@
 <template>
   <v-snackbar
+    v-if="currentNotification"
     v-model="open"
     bottom
+    :timeout="0"
     multi-line
-    v-bind="options">
-    <div class="ctn">
+    :color="currentNotification.type || 'error'"
+    vertical>
+    <div
+      class="px-2">
       <div
-        v-if="title"
-        class="title mb-2">
-        {{ title }}
+        v-if="currentNotification.title"
+        class="mb-2 uppercase font-weight-bold">
+        {{ currentNotification.title }}
       </div>
-      <div class="txt">
-        {{ text }}
+      <div
+        class="txt"
+        style="margin-right: 10px;">
+        {{ currentNotification.text }}
       </div>
     </div>
     <v-btn
-      v-if="options.closeable"
-      text
-      icon
+      v-if="currentNotification.closeText"
+      outlined
       @click.native="onClose">
-      <v-icon v-if="!closeText">
+      <v-icon>
         mdi-close
       </v-icon>
-      <span v-else>{{ closeText }}</span>
+      {{ currentNotification.closeText }}
     </v-btn>
   </v-snackbar>
 </template>
 
 <script>
-/* eslint-disable vue/require-default-prop */
-
 export default {
-  name: "Toast",
-  props: {
-    title: String,
-    text: String,
-    type: String,
-    callback: Function,
-    options: Object,
-    closeText: String
-  },
   data () {
     return {
-      open: false
+      toId1: null,
+      toId2: null,
+      open: false,
+      currentNotification: null
     }
   },
   watch: {
-    open: function (val) {
-      if (!val) {
-        this.close()
-      }
+    "$store.state.notifications": {
+      handler () {
+        this.loadNotification()
+      },
+      deep: true
     }
-  },
-  beforeMount () {
-    document.querySelector("#app").appendChild(this.$el)
   },
   mounted () {
-    this.open = true
+    this.loadNotification()
   },
   methods: {
-    onClose () {
-      this.open = false
-      if (typeof this.callback == "function") {
-        this.callback()
+
+    loadNotification () {
+      if (this.$store.state.notifications.length > 0 && this.currentNotification == null) {
+        this.currentNotification = {
+          ...this.$store.state.notifications[0]
+        }
+        this.$store.commit("notificationShown")
+
+        this.open = true
+        this.close()
       }
     },
-    close () {
-      if (this.open) {this.open = false}
-      setTimeout(() => {
-        this.$options.onClose()
-        this.$destroy()
-        removeElement(this.$el)
-      }, 700) // wait for close animation
-    }
-  }
-}
 
-function removeElement (el) {
-  if (typeof el.remove !== "undefined") {
-    el.remove()
-  } else {
-    el.parentNode.removeChild(el)
+    onClose () {
+      this.open = false
+      if (typeof this.currentNotification.callback == "function") {
+        this.currentNotification.callback()
+      }
+      this.currentNotification = null
+      clearTimeout(this.toId1)
+      clearTimeout(this.toId2)
+      setTimeout(() => {
+        this.loadNotification()
+      }, 100)
+    },
+    close () {
+      if (!!this.currentNotification.timeout || !this.currentNotification.callback) {
+        this.toId1 = setTimeout(() => {
+          this.open = false
+          this.currentNotification = null
+          this.toId2 = setTimeout(() => {
+            this.loadNotification()
+          }, 100)
+        }, this.currentNotification.timeout || 3000) // wait for close animation
+      }
+    }
   }
 }
 </script>
