@@ -14,7 +14,7 @@ Vue.use(vuetifyToastEngine)
 
 import * as $lodash from "lodash"
 
-import loadAxiosPlugin from "axios"
+import loadAxiosPlugin from "./plugins/axios.plugin"
 
 Vue.config.productionTip = false
 fetch("./" + process.env.BASE_URL + "/config.json")
