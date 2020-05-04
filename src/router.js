@@ -8,7 +8,7 @@ const routes = [
   {
     path: "/",
     name: "page-login",
-    component: () => import("./views/Login.vue"),
+    component: () => import("./views/templates/Login.vue"),
     meta: {
       layout: "full"
     }
@@ -16,12 +16,17 @@ const routes = [
   {
     path: "/dashboard",
     name: "page-dashboard",
-    component: () => import("./views/Home.vue")
+    component: () => import("./views/templates/Test.vue")
+  },
+  {
+    path: "/profile",
+    name: "page-profile",
+    component: () => import("./views/templates/Form.vue")
   },
   {
     path: "/topnav",
     name: "page-topnav",
-    component: () => import("./views/Home.vue"),
+    component: () => import("./views/templates/Test.vue"),
     meta: {
       layout: "topnav"
     }
@@ -29,7 +34,7 @@ const routes = [
   {
     path: "/full",
     name: "page-full",
-    component: () => import("./views/Home.vue"),
+    component: () => import("./views/templates/Test.vue"),
     meta: {
       layout: "full"
     }
@@ -37,7 +42,7 @@ const routes = [
   {
     path: "/404",
     name: "page-not-found",
-    component: () => import("./views/404.vue"),
+    component: () => import("./views/templates/404.vue"),
     meta: {
       layout: "full"
     }
