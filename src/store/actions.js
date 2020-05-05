@@ -1,17 +1,20 @@
 import axios from "axios"
+
+const payloadDefaults = {
+  url: "",
+  commit: "defKey",
+  method: "get",
+  body: null,
+  respKey: null,
+  onError: () => {}
+}
 export default {
-  async doApi ({ commit }, payload = {
-    url: "",
-    commit: "defKey",
-    method: "get",
-    body: null,
-    respKey: null,
-    onError: () => {}
-  }) {
+  async doApi ({ commit }, params) {
+    const payload = {
+      ...payloadDefaults,
+      ...params
+    }
     try {
-      if (!payload) {
-        throw Error("Payload is required for this request")
-      }
       let response = null
       switch (payload.method) {
       case "post":

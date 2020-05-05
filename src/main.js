@@ -16,6 +16,9 @@ import * as $lodash from "lodash"
 
 import loadAxiosPlugin from "./plugins/axios.plugin"
 
+import loaderPlugin from "./plugins/loaders"
+Vue.use(loaderPlugin)
+
 Vue.config.productionTip = false
 fetch("./" + process.env.BASE_URL + "/config.json")
   .then((data) => {

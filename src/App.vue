@@ -15,6 +15,11 @@
         @navBtnClick="drawer = !drawer" />
 
       <v-content clipped>
+        <v-progress-linear
+          :active="$loading.loaders.length > 0"
+          absolute
+          top
+          :indeterminate="true"></v-progress-linear>
         <v-container fluid>
           <router-view :key="$route.fullPath" />
           <my-toast />
