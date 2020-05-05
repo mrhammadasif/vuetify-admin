@@ -60,10 +60,18 @@ this.$toast.success("ERROR MESSAGE")
 }
 ```
 
+### Progress Bar loading
+
+For Showing Progress Bar
+
+`this.$loader.show("LOADER_NAME")`
+
+For Hiding Progress Bar (the same name should be used while hiding and showing)
+
+`this.$loader.hide("LOADER_NAME")`
+
 ### TODOS
 
-- Progress Bar Support
 - Quick Tour
 - Intro Popup
 - Bread Crumbs
-- Shift whole base to Vue 3 (depends on Vue@3 release)
