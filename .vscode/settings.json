@@ -9,14 +9,8 @@
     "vue"
   ],
   "files.exclude": {
-    "*.csproj": true,
-    "*.cs": true,
-    "PackageRoot": true,
-    "wwwroot": true,
     "node_modules": true,
-    "Properties": true,
-    "bin": true,
-    "obj": true
+    "dist": true
   },
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
