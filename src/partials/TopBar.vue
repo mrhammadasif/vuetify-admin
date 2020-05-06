@@ -9,6 +9,7 @@
     <v-spacer></v-spacer>
     <v-switch
       v-model="darkMode"
+      color="dark"
       class="mt-4"
       prepend-icon="mdi-theme-light-dark"
       inset />
@@ -16,14 +17,15 @@
 </template>
 <script>
 export default {
-  data: function () {
+  data () {
     return {
-      darkMode: false
+      darkMode: JSON.parse(localStorage.getItem("darkMode"))
     }
   },
   watch: {
     darkMode (v) {
       this.$vuetify.theme.dark = !!v
+      localStorage.setItem("darkMode", v)
     }
   }
 }

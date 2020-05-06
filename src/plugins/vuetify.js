@@ -6,6 +6,7 @@ Vue.use(Vuetify)
 
 export default new Vuetify({
   theme: {
+    dark: JSON.parse(localStorage.getItem("darkMode")),
     themes: {
       light: {
         primary: "#d12026",
