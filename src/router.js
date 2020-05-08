@@ -14,14 +14,19 @@ const routes = [
     }
   },
   {
-    path: "/dashboard",
-    name: "page-dashboard",
+    path: "/registrations",
+    name: "page-registrations",
     component: () => import("./views/templates/Test.vue")
   },
   {
-    path: "/profile",
-    name: "page-profile",
-    component: () => import("./views/templates/Form.vue")
+    path: "/applications",
+    name: "page-applications",
+    component: () => import("./views/templates/Table.vue")
+  },
+  {
+    path: "/launcher",
+    name: "page-launcher",
+    component: () => import("./views/templates/Launcher.vue")
   },
   {
     path: "/topnav",
@@ -57,11 +62,18 @@ const routes = [
 const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
+  scrollBehavior (){
+    return {
+      x: 0,
+      y: 0
+    }
+  },
   routes
 })
 
 router.afterEach((from, to) => {
   store.state.routeLoaded = true
+  // document.getElementById("loading-bg").style.display = "none"
 })
 
 export default router

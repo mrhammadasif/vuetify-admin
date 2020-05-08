@@ -1,10 +1,10 @@
 <template>
   <v-app-bar
+    v-bind="$attrs"
     dense
     class="align-end"
     app>
-    <v-app-bar-nav-icon
-      @click.stop="$emit('navBtnClick')" />
+    <slot name="addons"></slot>
     <v-toolbar-title>{{ $config.APP_TITLE }}</v-toolbar-title>
     <v-spacer></v-spacer>
     <v-switch

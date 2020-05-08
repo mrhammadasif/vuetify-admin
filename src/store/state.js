@@ -3,19 +3,33 @@ export default {
   notifications: [],
   sidenavItems: [
     {
-      title: "Dashboard",
-      path: "/dashboard",
+      title: "Applications",
+      path: "/applications",
       icon: "mdi-view-dashboard"
     },
     {
-      title: "Topnav",
-      path: "/topnav",
-      icon: "mdi-facebook"
+      title: "Registrations",
+      path: "/registrations",
+      icon: "mdi-table-key"
     },
     {
-      title: "Full Screen",
+      title: "Launcher",
+      path: "/launcher",
+      icon: "mdi-account-group-outline"
+    },
+    {
+      title: "Data",
+      type: "heading"
+    },
+    {
+      title: "Databases",
       path: "/full",
-      icon: "mdi-google"
+      icon: "mdi-database-import"
+    },
+    {
+      title: "Database Types",
+      path: "/full",
+      icon: "mdi-database-lock"
     }
   ]
 }

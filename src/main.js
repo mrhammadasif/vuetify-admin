@@ -3,11 +3,15 @@ import App from "./App.vue"
 import router from "./router"
 import store from "./store"
 import vuetify from "./plugins/vuetify"
+import "./scss/variables.scss"
 import "roboto-fontface/css/roboto/roboto-fontface.css"
 import "@mdi/font/css/materialdesignicons.css"
 
 import validationRules from "./plugins/validation-rules"
 Vue.use(validationRules)
+
+import VuePageTransition from "vue-page-transition"
+Vue.use(VuePageTransition)
 
 import vuetifyToastEngine from "./plugins/toast/toast"
 Vue.use(vuetifyToastEngine)

@@ -70,8 +70,18 @@ For Hiding Progress Bar (the same name should be used while hiding and showing)
 
 `this.$loader.hide("LOADER_NAME")`
 
+### BreadCrumbs
+
+Vuetify provides component for BreadCrumbs example usage
+
+```html
+<v-breadcrumbs
+  divider="/"
+  :items="[{text: 'Dashboard', href: '/'}, {text: $route.name}]">
+</v-breadcrumbs>
+```
+
 ### TODOS
 
 - Quick Tour
 - Intro Popup
-- Bread Crumbs

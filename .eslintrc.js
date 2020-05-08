@@ -3,14 +3,14 @@ module.exports = {
   env: {
     node: true
   },
-  "extends": [
+  extends: [
     "plugin:vue/recommended"
   ],
   parserOptions: {
-    parser: 'babel-eslint'
+    parser: "babel-eslint"
   },
-  "rules": {
-    "indent": [
+  rules: {
+    indent: [
       "error",
       2
     ],
@@ -22,8 +22,8 @@ module.exports = {
     "no-multiple-empty-lines": [
       "error",
       {
-        "max": 1,
-        "maxEOF": 1
+        max: 1,
+        maxEOF: 1
       }
     ],
     "switch-colon-spacing": "error",
@@ -35,19 +35,22 @@ module.exports = {
     "array-bracket-newline": [
       "error",
       {
-        "multiline": true,
-        "minItems": 1
+        multiline: true,
+        minItems: 1
       }
     ],
-    "camelcase": "warn",
+    camelcase: "warn",
     "array-bracket-spacing": "error",
     "arrow-parens": "error",
-    "function-paren-newline": ["error", "multiline"],
+    "function-paren-newline": [
+      "error",
+      "multiline"
+    ],
     "array-element-newline": [
       "error",
       {
-        "minItems": 1,
-        "multiline": true
+        minItems: 1,
+        multiline: true
       }
     ],
     "vars-on-top": "error",
@@ -59,7 +62,7 @@ module.exports = {
     "no-useless-concat": "error",
     "no-useless-return": "error",
     "no-var": "error",
-    "semi": [
+    semi: [
       "error",
       "never"
     ],
@@ -68,15 +71,23 @@ module.exports = {
       "never"
     ],
     "block-scoped-var": "error",
-    "object-curly-spacing": ["error", "always"],
+    "object-curly-spacing": [
+      "error",
+      "always"
+    ],
     "object-property-newline": [
       "error",
-      { "allowAllPropertiesOnSameLine": false }
+      {
+        allowAllPropertiesOnSameLine: false
+      }
     ],
-    "object-curly-newline": ["error", {
-      "ObjectExpression": "always",
-      "ImportDeclaration": "never"
-    }],
+    "object-curly-newline": [
+      "error",
+      {
+        ObjectExpression: "always",
+        ImportDeclaration: "never"
+      }
+    ],
     "no-bitwise": "error",
     "require-await": "error",
     "quote-props": [
@@ -95,23 +106,40 @@ module.exports = {
       "error",
       "property"
     ],
-    "curly": [
+    curly: [
       "error",
       "all"
     ],
     "lines-between-class-members": "error",
     "comma-spacing": "error",
-    "quotes": [
+    quotes: [
       "error",
       "double",
       "avoid-escape"
     ],
-    "vue/script-indent": "error",
+    "vue/component-name-in-template-casing": [
+      "error",
+      "kebab-case"
+    ],
+    "vue/max-attributes-per-line": [
+      "error",
+      {
+        singleline: 1,
+        multiline: {
+          max: 1,
+          allowFirstLine: false
+        }
+      }
+    ],
+
     "vue/html-closing-bracket-spacing": "warn",
-    "vue/html-closing-bracket-newline": ["error", {
-      "singleline": "never",
-      "multiline": "never"
-    }],
+    "vue/html-closing-bracket-newline": [
+      "error",
+      {
+        singleline: "never",
+        multiline: "never"
+      }
+    ],
     "vue/prop-name-casing": "error",
     "vue/html-self-closing": "off",
     "vue/no-v-html": "off"

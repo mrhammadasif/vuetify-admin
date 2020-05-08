@@ -1,4 +1,5 @@
 {
-  "APP_TITLE": "Nitroxis Dashboard",
+  "APP_NAME": "Nitroxis",
+  "SUB_TITLE": "Admin Panel",
   "API_BASE_URL": "http://localhost:3000/"
 }

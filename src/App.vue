@@ -1,27 +1,36 @@
 <template>
-  <div
-    v-show="$store.state.routeLoaded"
-    id="app">
-    <v-app>
-      <SideNav
+  <div>
+    <v-app v-show="$store.state.routeLoaded">
+      <side-nav
         v-if="showSidenav"
-        dark
+        :key="oppFull"
         :drawer.sync="drawer"
         :full.sync="full"
+        @navBtnClick="full = !full"
         @logout="logout" />
 
-      <TopBar
+      <top-bar
         v-if="showTopnav"
-        @navBtnClick="drawer = !drawer" />
+        :color="$vuetify.theme.dark ? 'primary' : 'primary'">
+        <template #addons>
+        </template>
+      </top-bar>
 
-      <v-content clipped>
+      <v-content
+        clipped
+        class="bg">
         <v-progress-linear
+
           :active="$loading.loaders.length > 0"
           absolute
           top
           :indeterminate="true"></v-progress-linear>
-        <v-container fluid>
-          <router-view :key="$route.fullPath" />
+        <v-container
+          fluid>
+          <vue-page-transition name="fade-in-up">
+            <router-view
+              :key="$route.fullPath" />
+          </vue-page-transition>
           <my-toast />
         </v-container>
       </v-content>
@@ -33,6 +42,7 @@
 import SideNav from "@/partials/Sidenav.vue"
 import TopBar from "@/partials/TopBar.vue"
 import MyToast from "@/plugins/toast/Toast.vue"
+
 export default {
   components: {
     SideNav,
@@ -45,6 +55,11 @@ export default {
       showTopnav: true,
       drawer: true,
       full: true
+    }
+  },
+  computed: {
+    oppFull () {
+      return !this.full
     }
   },
   watch: {
