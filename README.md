@@ -1,6 +1,6 @@
 # Dashboard Admin Template by [Nitroxis](https://nitroxis.com)
 
-Admin Dashboard by @mrhammadasif based on vue@2.6+ and vuetify@2+
+Admin Dashboard Template by Nitroxis based on vue@2.6+ and vuetify@2+
 
 ## Recommended plugins in VSCODE
 
