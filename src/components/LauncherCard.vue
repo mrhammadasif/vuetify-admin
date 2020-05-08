@@ -59,9 +59,12 @@
 
 <script>
 export default {
-  props: [
-    "app"
-  ],
+  props: {
+    app: {
+      type: Object,
+      default: null
+    }
+  },
   data: function () {
     return {
       dropdown: false,
