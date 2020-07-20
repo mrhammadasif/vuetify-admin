@@ -13,7 +13,7 @@
     "@mdi/font": "^5.1.45",
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "roboto-fontface": "^0.10.0",
     "serve": "^11.3.0",
     "typeface-montserrat": "^0.0.75",
